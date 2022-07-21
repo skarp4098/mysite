@@ -1,0 +1,16 @@
+<h2>Announcements</h2>
+<table>
+    {% for ann in announcements %}
+    <tr>
+        <td><strong>
+            {{ ann.date }}
+        </strong></td>
+        <td>{{ ann.announcement }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td><strong>{% now "m-d-y" %}</strong></td>
+        <td>No Announcements</td>
+    </tr>
+    {% endfor %}
+</table>

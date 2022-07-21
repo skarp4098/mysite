@@ -1,0 +1,177 @@
+{% extends 'pattern2.html' %}
+
+{% block title %}
+    {{ page_title }} Lista przystanków
+{% endblock title %}
+
+{% block content %}
+<div class="grid-container-one_col">
+
+    <div class="item1">
+       <h3 style="text-align: center; padding-left: 8px; color: #4a3079; font-size:20px">
+             Przystanki BT "MONiKA" według obowiązującego rozkładu
+         </h3>
+    </div>
+    <div class="item2">
+
+        <div class="grid-przystanki" style="padding-left: 0px;">
+         <div class="grid-przystanek">
+
+             {% for key_r, value_r in skotniki.items %}
+           {# {{key_r}} #}
+                    {% for key_m, value_m in value_r.miasto.items %}
+
+                     <ol> <span> {{key_m}} </span>
+                            <br>
+                            {% for key_p, item in value_m.przystanki.items %}
+
+                                {% for urls in item.values %}
+                                    {% if urls|length_is:"2" %}
+                                        {% for url in urls %}
+                                         {% if forloop.first %}
+                                          <li>
+                                            <a class="lista" href="/{{ url }}">{{key_p}} - kierunek CZARNE</a>
+                                          </li>
+                                         {% else %}
+                                          <li>
+                                            <a class="lista" href="/{{ url }}">{{key_p}} - kierunek SZCZECINEK</a>
+                                          </li>
+                                         {% endif %}
+
+                                        {% endfor %}
+                                   {% else %}
+                                   <li>
+                                     <a class="lista"  href="/{{ urls }}">{{key_p}}</a>
+                                   </li>
+                                   {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                         </ol>
+
+                    {% endfor %}
+        {% endfor %}
+         </div>
+         <div class="grid-przystanek">
+
+                {% for key_r, value_r in szczecinek.items %}
+           {# {{key_r}} #}
+                    {% for key_m, value_m in value_r.miasto.items %}
+
+                        <ol> <span style="font-size: 18px"> {{key_m}} </span>
+
+                            {% for key_p, item in value_m.przystanki.items %}
+
+                                {% for urls in item.values %}
+                                    {% if urls|length_is:"2" %}
+                                        {% for url in urls %}
+                                         {% if forloop.first %}
+                                          <li>
+                                            <a class="lista" href="/{{ url }}">{{key_p}} - kierunek CZARNE</a>
+                                          </li>
+                                         {% else %}
+                                          <li>
+                                            <a class="lista" href="/{{ url }}">{{key_p}} - kierunek SZCZECINEK</a>
+                                          </li>
+                                         {% endif %}
+
+                                        {% endfor %}
+                                   {% else %}
+                                   <li>
+                                     <a class="lista" href="/{{ urls }}">{{key_p}}</a>
+                                   </li>
+                                   {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                         </ol>
+
+                    {% endfor %}
+        {% endfor %}
+
+         </div>
+         <div class="grid-przystanek">
+
+                {% for key_r, value_r in gwda.items %}
+           {# {{key_r}} #}
+                    {% for key_m, value_m in value_r.miasto.items %}
+
+                        <ol> <span style="font-size: 18px"> {{key_m}} </span>
+
+                            {% for key_p, item in value_m.przystanki.items %}
+
+                                {% for urls in item.values %}
+                                    {% if urls|length_is:"2" %}
+                                        {% for url in urls %}
+                                         {% if forloop.first %}
+                                          <li>
+                                            <a class="lista" href="/{{ url }}">{{key_p}} - kierunek CZARNE</a>
+                                          </li>
+                                         {% else %}
+                                          <li>
+                                            <a class="lista" href="/{{ url }}">{{key_p}} - kierunek SZCZECINEK</a>
+                                          </li>
+                                         {% endif %}
+
+                                        {% endfor %}
+                                   {% else %}
+                                   <li>
+                                     <a class="lista" href="/{{ urls }}">{{key_p}}</a>
+                                   </li>
+                                   {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                         </ol>
+
+                    {% endfor %}
+        {% endfor %}
+
+         </div>
+         <div class="grid-przystanek">
+
+                {% for key_r, value_r in czarne.items %}
+           {# {{key_r}} #}
+                    {% for key_m, value_m in value_r.miasto.items %}
+
+                        <ol> <span style="font-size: 18px"> {{key_m}} </span>
+
+                            {% for key_p, item in value_m.przystanki.items %}
+
+                                {% for urls in item.values %}
+                                    {% if urls|length_is:"2" %}
+                                        {% for url in urls %}
+                                         {% if forloop.first %}
+                                          <li>
+                                            <a class="lista" href="/{{ url }}">{{key_p}} - kierunek CZARNE</a>
+                                          </li>
+                                         {% else %}
+                                          <li>
+                                            <a class="lista" href="/{{ url }}">{{key_p}} - kierunek SZCZECINEK</a>
+                                          </li>
+                                         {% endif %}
+
+                                        {% endfor %}
+                                   {% else %}
+                                   <li>
+                                     <a class="lista" href="/{{ urls }}">{{key_p}}</a>
+                                   </li>
+                                   {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                         </ol>
+
+                    {% endfor %}
+        {% endfor %}
+
+         </div>
+        </div>
+
+
+    </div>
+
+
+
+    <div class="item4">
+
+    </div>
+</div>
+
+{% endblock content %}

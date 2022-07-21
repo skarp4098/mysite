@@ -1,0 +1,256 @@
+{% load static %}
+
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Sylwester Karpiński">
+    <link href='https://fonts.googleapis.com/css?family=Bilbo' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>
+        {% block title %}
+           {{ page_title|default:"Bez tytułu" }}
+        {% endblock title %}
+    </title>
+    <link href="{% static 'firma.css' %}" rel="stylesheet" type="text/css">
+
+</head>
+<body onload="startTime()">
+
+   <div class="header_main">
+
+        <h1 style="color: white; padding: 10px; ">Biuro Turystyczne "MONiKA" &nbsp;
+            <span style="font-family: Bilbo; text-shadow: 2px 2px 4px white;">  jeździmy dla WAS od 1991 roku !</span>
+        </h1>
+
+
+   </div>
+
+   <div class="topnav" id="myTopnav">
+      <a href="/jazda" class="active">Start</a>
+      <a href="{% url 'jazda:przystanek' 1 0 %}">Skotniki</a>
+
+      <div class="dropdown">
+        <button class="dropbtn" onclick="dropFunction1()">Szczecinek
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content" id="myDropdown1">
+           <a href="{% url 'jazda:szczecinek'%}">Czarne</a>
+           <a href="{% url 'jazda:skotniki'%}">Skotniki</a>
+        </div>
+      </div>
+
+       <div class="dropdown">
+        <button class="dropbtn" onclick="dropFunction2()">Gwda
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content" id="myDropdown2">
+           <a href="/jazda/gwda">Czarne</a>
+           <a href="{% url 'jazda:gwdapowrot'%}">Szczecinek</a>
+        </div>
+       </div>
+
+      <a href="/jazda/czarne">Czarne</a>
+      <a href="/jazda/soboty">Sobota</a>
+      <a href="/jazda/przystanki">Przystanki</a>
+     {# <a href="/jazda/przyst">przyst</a> #}
+
+      <div class="dropdown">
+        <button class="dropbtn" onclick="dropFunction3()">Więcej
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div id="myDropdown3" class="dropdown-content">
+           <a href="/jazda/oferta">Oferta</a>
+           <a href="/jazda/bilety">Bilety miesięczne</a>
+           <a href="/jazda/ulgi">Ulgi na przejazdy</a>
+           <a href="#contact">Do pobrania !</a>
+        </div>
+       </div>
+      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+       <div class="topnav-right" id="txt"></div>
+
+   </div>
+
+
+        <div class="column side">
+
+                        <div class="card">
+                            <div class="header">
+                                <p style="font-size: 20px;">Strona w budowie</p>
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <p style="color: white">January 1, 2021</p>
+                        </div>
+        </div>
+
+
+        <div class="column middle">
+             {% block content %}
+
+             {% endblock content %}
+        </div>
+
+        <div class="column side">
+
+            <canvas id="canvasX" width="200" height="200"></canvas>
+
+        </div>
+
+
+        <div class="footer_main">
+            Copyright &copy;
+              <script type="text/JavaScript">
+                  document.write(new Date().getFullYear());
+              </script> skarp
+        </div>
+
+
+<script>
+function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+}
+
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+
+function dropFunction1() {
+  document.getElementById("myDropdown1").classList.toggle("show");
+}
+function dropFunction2() {
+  document.getElementById("myDropdown2").classList.toggle("show");
+}
+function dropFunction3() {
+  document.getElementById("myDropdown3").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+  var dropdowns = document.getElementsByClassName("dropdown-content");
+  var i;
+  for (i = 0; i < dropdowns.length; i++){
+    var openDropdown = dropdowns[i];
+    if (openDropdown.classList.contains('show')) {
+      openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+window.onscroll = function() {xFunction()};
+var x = document.getElementById("myTopnav");
+var sticky = x.offsetTop;
+
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+
+function xFunction() {
+  if (window.pageYOffset >= sticky) {
+    x.classList.add("sticky")
+  } else {
+    x.classList.remove("sticky");
+  }
+}
+
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var radius = canvas.height / 2;
+ctx.translate(radius, radius);
+radius = radius * 0.90
+setInterval(drawClock, 1000);
+
+function drawClock() {
+  drawFace(ctx, radius);
+  drawNumbers(ctx, radius);
+  drawTime(ctx, radius);
+}
+
+function drawFace(ctx, radius) {
+  var grad;
+  ctx.beginPath();
+  ctx.arc(0, 0, radius, 0, 2*Math.PI);
+  ctx.fillStyle = 'white';
+  ctx.fill();
+  grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
+  grad.addColorStop(0, '#026b4e');
+  grad.addColorStop(0.5, 'white');
+  grad.addColorStop(1, '#026b4e');
+  ctx.strokeStyle = grad;
+  ctx.lineWidth = radius*0.1;
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
+  ctx.fillStyle = '#026b4e';
+  ctx.fill();
+}
+
+function drawNumbers(ctx, radius) {
+  var ang;
+  var num;
+  ctx.font = radius*0.15 + "px arial";
+  ctx.textBaseline="middle";
+  ctx.textAlign="center";
+  for(num = 1; num < 13; num++){
+    ang = num * Math.PI / 6;
+    ctx.rotate(ang);
+    ctx.translate(0, -radius*0.85);
+    ctx.rotate(-ang);
+    ctx.fillText(num.toString(), 0, 0);
+    ctx.rotate(ang);
+    ctx.translate(0, radius*0.85);
+    ctx.rotate(-ang);
+  }
+}
+
+function drawTime(ctx, radius){
+    var now = new Date();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+    //hour
+    hour=hour%12;
+    hour=(hour*Math.PI/6)+
+    (minute*Math.PI/(6*60))+
+    (second*Math.PI/(360*60));
+    drawHand(ctx, hour, radius*0.5, radius*0.07);
+    //minute
+    minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
+    drawHand(ctx, minute, radius*0.8, radius*0.07);
+    // second
+    second=(second*Math.PI/30);
+    drawHand(ctx, second, radius*0.9, radius*0.02);
+}
+
+function drawHand(ctx, pos, length, width) {
+    ctx.beginPath();
+    ctx.lineWidth = width;
+    ctx.lineCap = "round";
+    ctx.moveTo(0,0);
+    ctx.rotate(pos);
+    ctx.lineTo(0, -length);
+    ctx.stroke();
+    ctx.rotate(-pos);
+}
+
+</script>
+</body>
+
+</html>

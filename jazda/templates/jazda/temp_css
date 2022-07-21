@@ -1,0 +1,41 @@
+szablon jedna kolumna
+
+{% extends 'pattern2.html' %}
+
+{% block title %}
+    {{ page_title }} Title
+{% endblock title %}
+
+{% block content %}
+<div class="grid-container-one_col">
+
+    <div class="item1">
+        <p style="text-align: center">header</p>
+    </div>
+
+    <div class="item2">
+
+    </div>
+
+    <div class="item4">
+     <p style="text-align: center">stopka</p>
+    </div>
+</div>
+
+{% endblock content %}
+
+        <h3>
+            Zajmujemy się turystyką krajową i regionalnym przewozem osób. Jesteśmy przygotowani aby skutecznie realizować czynności związane z przewozem osób.
+                 Z przyjemnością zajmniemy się przewozem Państwa klientów, pracowników, partnerów biznesowych, przyjaciół, rodziny.
+                 Współpracujemy z wszelkiego rodzaju klientami:
+        </h3>
+
+    <article>
+        <p> - urzędami administracji publicznej</p>
+        <p> - przedszkolami i placówkami szkolnymi </p>
+        <p>- biurami turystycznymi </p>
+        <p> - parafiami kościelnymi </p>
+        <p> - osobami prywatnymi  </p>
+        <p> - firmami zainteresowanymi przewozem swoich pracowników </p>
+    </article>
+        <h3>Zapraszamy do korzystania z naszych usług.</h3>

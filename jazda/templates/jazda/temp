@@ -1,0 +1,181 @@
+    wimbledon zielony #026b4e
+    wimbledon fiolet #4a3079
+    zielenBaner #04AA6D
+
+    {{ item|wordwrap:1 }}
+    https://docs.djangoproject.com/en/4.0/ref/templates/builtins/#filter
+
+    <p style="text-align: center; font-size: 40px;"> <a style="color: white;" href="/jazda/przystanki">Przystanki</a> </p>
+
+<div class="header_main">
+        <div class="mask2"><img src="{% static 'logoBT.png' %}" alt=""/></div>
+        <h2 id="rcorners2">BT "MONIKA" &nbsp; <span style="font-family: Bilbo">  jeździmy dla WAS od 1991 roku !</span>
+        </h2>
+        <h3 id="rcorners3"> Przewóz osób - Wynajem autokarów - Nauka jazdy</h3>
+   </div>
+
+
+<a href="{% url 'jazda:przystanek' 1 0 %}">Skotniki</a>
+            <a href="{% url 'jazda:szczecinek'%}">Szczecinek</a>
+            <a href="/jazda/szczecinek">Gwda</a>
+            <a href="/jazda/czarne">Czarne</a>
+            <a href="/jazda/soboty">Sobota</a>
+            <a href="/jazda/przystanki">Przystanki</a>
+            <a href="/jazda/oferta">Oferta</a>
+            <a href="/jazda/ulgi">Ulgi</a>
+            <a href="/jazda/bilety">Bilety miesięczne</a>
+
+
+{% extends 'pattern.html' %}
+
+{% block title %}
+    {{ page_title }} Przystanki
+{% endblock title %}
+
+{% block content %}
+
+<div class="grid-container-przystanki">
+
+    <div class="item1">
+
+    </div>
+    <div class="item2">
+         <h3 style="text-align: center">{{ kierunek_tam }}</h3>
+         {% for key, value in przystanki_tam.items %}
+       <ul>
+           <li>  <a class="lista" href="{% url 'jazda:przystanek' value.id 0 %}"> {{ key|upper }}, {{ value.opis }} </a>  </li>
+       </ul>
+         {% endfor %}
+
+    </div>
+
+  <div class="item3">
+      <h3 style="text-align: center">{{ kierunek_powrot }}</h3>
+      {% for key, value in przystanki_powrot.items %}
+      <ul>
+         <li> <a class="lista" href="{% url 'jazda:przystanek' value.id 1 %}"> {{ key|upper }}, {{ value.opis }} </a> </li>
+      </ul>
+       {% endfor %}
+  </div>
+ <div class="item4">
+     stopka
+ </div>
+</div>
+{% endblock content %}
+
+żółta taśma header
+<div style="background:yellow; padding: 1px; width: 70%; box-shadow: 8px 8px 8px #DAA520">
+            <h4 style="text-align:center">  </h4>
+        </div>
+
+
+{% if i.min|length > 1 %}
+      {% if forloop.first %} &nbsp; {% endif %}
+{% endif %}
+
+
+tebela przystanek:
+
+<div class="item2">
+            {% for key, value in przystanek.items %}
+            <h3 style="color: #4a3079; text-align: left; padding-left: 5px"> {{ key|upper }} {# {{ value.kierunek}} #} </h3>
+            <table>
+                <caption>
+                     Rozklad jazdy ważny od {{ value.od }}
+                </caption>
+                <tr>
+                    <th>godziny</th>
+                    {% for od_do in value.etykiety_godzin %}
+                    <th align="center">  {{ od_do }}  </th>
+                    {% endfor %}
+                </tr>
+
+                {% for key, value in value.przystanek.items %}
+                <tr>
+
+                    <td>{{ key|upper }} <br> {{ value.opis }}</td>
+
+                    {% for item in value.godzina.items %}
+                             <td width="100px">
+                                 {% if item|length > 1 %}
+
+                                     {% for i in item %}
+                                         {% if i.min|length > 1 %}
+                                            {% for i in i.min %}
+                                                 {{ i }}
+                                            {% endfor %}
+                                         {% else %}
+                                           {{ i.min }}
+                                         {% endif %}
+                                     {% endfor %}
+                                 {% else %}
+                                     {{ item }}
+                                 {% endif %}
+
+                             </td>
+
+                    {% endfor %}
+
+                </tr>
+              {% endfor%}
+                 <tr>
+                    <th colspan="{{ value.etykiety_godzin|length|add:2 }}" style="text-align: left;
+                     background-color: #4a3079">
+                            <sup>S</sup> - kursuje tylko w sobotę &nbsp;
+                            <sup>Z</sup> - kurs do Skotnik
+                    </th>
+                </tr>
+
+            </table>
+            {% endfor %}
+
+    </div>
+
+koniec tabeli przystanek
+
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': ['godzina', 'przystanek', 'rozklad'],
+    }
+}
+
+
+dla strony przystanki.py
+
+
+     <! --   {% for key_r, value_r in kolekcja.items %}
+            {{key_r}}
+                    {% for key_m, value_m in value_r.miasto.items %}
+
+                        <ol>  {{key_m}}
+
+                            {% for key_p, item in value_m.przystanki.items %}
+
+                                {% for urls in item.values %}
+                                    {% if urls|length_is:"2" %}
+                                        {% for url in urls %}
+                                         {% if forloop.first %}
+                                          <li>
+                                            <a class="lista" href="/{{ url }}">{{key_p}} - kierunek CZARNE</a>
+                                          </li>
+                                         {% else %}
+                                          <li>
+                                            <a class="lista" href="/{{ url }}">{{key_p}} - kierunek SZCZECINEK</a>
+                                          </li>
+                                         {% endif %}
+
+                                        {% endfor %}
+                                   {% else %}
+                                   <li>
+                                     <a class="lista" href="/{{ urls }}">{{key_p}}</a>
+                                   </li>
+                                   {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                         </ol>
+
+                    {% endfor %}
+        {% endfor %}
+        -->

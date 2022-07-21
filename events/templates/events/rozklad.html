@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}{{title}}{% endblock title %}
+
+{% block content %}
+  <h1>Rozklad</h1>
+
+<table>
+
+      {% for godzina in godziny %}
+
+    <tr>
+        <td>{{ godzina.przystanek}}</td>
+
+        {% for godzina in godziny %}
+
+          {% if godzina.godziny in godzina.przystanek %}
+
+        <td>{{ godzina.godzina }}</td>
+        {% else %}
+        <td>dupa</td>
+          {% endif %}
+        {% empty %}
+        <td>'>'/td>
+    </tr>
+      {% endfor%}
+    {% endfor %}
+</table>
+
+{% endblock content %}

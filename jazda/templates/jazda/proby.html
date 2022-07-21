@@ -1,0 +1,129 @@
+{% extends 'pattern2.html' %}
+
+{% block title %}
+    {{ page_title }} Proby
+{% endblock title %}
+
+
+{% block content%}
+
+<div class="grid-container-one_col">
+
+  <div class="item1">
+          <p style="text-align: center">header</p>
+  </div>
+
+  <div class="item2">
+
+
+            {% for key, value in rozklad_tam.items %}
+            <span>  {{ key|upper }}  {{ value.kierunek}}</span> <br>
+            <table>
+                <tr>
+                    <th>LP</th><th>godziny</th>
+            {% for od_do in value.etykiety_godzin %}   <th align="center">{{ od_do }}</th> {% endfor %}
+                </tr>
+            {% for key, value in value.przystanek.items %}
+                <tr>
+                    <td style="background-color: lightgrey">{{forloop.counter}}</td>
+                    <td>{{ key|upper }} <br> {{ value.opis }}</td>
+
+                    {% for item in value.godzina.items %}
+                             <td>
+                                 {% if item|length > 1 %}
+
+                                     {% for i in item %}
+                                         {% if i.min|length > 1 %}
+                                            {% for i in i.min %}
+                                                 {{ i }}
+                                            {% endfor %}
+                                            {% else %}
+                                              {{ i.min }}
+                                         {% endif %}
+                                     {% endfor %}
+                                     {% else %}
+                                        {{ item }}
+                                 {% endif %}
+
+                             </td>
+
+                    {% endfor %}
+
+                </tr>
+
+            {% endfor%}
+                <th colspan="{{ value.etykiety_godzin|length|add:2 }}" align="left">
+                 <span>   <sup>s</sup> - kursuje tylko w sobotę </span> <br>
+                    <sup>*</sup> - kurs do Skotnik
+                </th>
+                <tr>
+                      <span style="font-size: 15px;">Rozklad jazdy ważny od: </span>
+                      <span style="color:green;font-size:20px">{{ value.od }}</span>
+                </tr>
+            </table>
+
+            {% endfor%}
+                  <br>
+                  {% for item in cont %}
+                    {{ item }}
+                  {% endfor%}<br>
+                  {{ cont }}
+
+
+              <div>
+                  {{ rozklad_tam }}<br><br>
+                  {{ przystanki }}
+              </div>
+
+
+                  {% for key, value in rozklad_powrot.items %}
+                  <span>{{ key|lower }} {{ value.kierunek}}</span><br>
+            <table>
+                <tr>
+                    <th>LP</th><th>godziny</th>
+                    {% for od_do in value.etykiety_godzin %}   <th align="center">{{ od_do }}</th>  {% endfor %}
+                </tr>
+            {% for key, value in value.przystanek.items %}
+                <tr>
+                    <td style="background-color: lightgrey">{{forloop.counter}}</td>
+                    <td>{{ key|upper }} <br> {{ value.opis }}</td>
+
+                    {% for item in value.godzina.items %}
+                             <td>
+                                 {% if item|length > 1 %}
+
+                                     {% for i in item %}
+                                         {% if i.min|length > 1 %}
+                                            {% for i in i.min %}
+                                                 {{ i }}
+                                            {% endfor %}
+                                         {% else %}
+                                           {{ i.min }}
+                                         {% endif %}
+                                     {% endfor %}
+                                 {% else %}
+                                     {{ item }}
+                                 {% endif %}
+
+                             </td>
+
+                        {% endfor %}
+
+                </tr>
+            {% endfor%}
+                <th colspan="{{ value.etykiety_godzin|length|add:2 }}">
+                      <span style="font-size: 15px;">Rozklad jazdy ważny od: {{ value.od }}  </span>
+                      <span style="color:green;font-size:20px; align=right"></span>
+                </th>
+            </table>
+
+                  {% endfor%}
+  </div>
+
+      <div class="item4">
+                 <p style="text-align: center">stopka</p>
+      </div>
+
+
+</div>
+{% endblock content%}

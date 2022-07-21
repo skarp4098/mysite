@@ -1,0 +1,85 @@
+{% extends 'pattern2.html' %}
+
+{% block title %}
+    {{ page_title }} Oferta
+{% endblock title %}
+
+{% block content %}
+<div class="grid-container-one_col">
+
+    <div class="item1">
+
+    </div>
+
+    <div class="item2">
+
+     <div id="London" class="tabcontent">
+        <h1>Przewóz osób</h1>
+
+        <h3>
+            Zajmujemy się turystyką krajową i regionalnym przewozem osób. Jesteśmy przygotowani aby skutecznie realizować czynności związane z przewozem osób.
+                 Z przyjemnością zajmniemy się przewozem Państwa klientów, pracowników, partnerów biznesowych, przyjaciół, rodziny.
+                 Współpracujemy z wszelkiego rodzaju klientami:
+        </h3>
+
+     <ul>
+        <li> firmami zainteresowanymi przewozem swoich pracowników </li>
+        <li> przedszkolami i placówkami szkolnymi </li>
+        <li> urzędami administracji publicznej</li>
+        <li> biurami turystycznymi </li>
+        <li> parafiami kościelnymi </li>
+        <li> osobami prywatnymi  </li>
+     </ul>
+        <h3>tel. 605 551 105</h3>
+        <h2>Zapraszamy</h2>
+
+     </div>
+
+     <div id="Paris" class="tabcontent">
+        <h1>Prawo jazdy</h1>
+         <h3>Kurs prawa jazdy</h3>
+        <p>
+            Zainteresowanym proponujemy kurs na prawo jazdy kat. "B"
+        </p>
+
+        <p>
+           Szkoła Nauki Jazdy "MONIKA" <br />
+               Arkadiusz Częszak<br />
+        </p>
+            <h3>tel. 601 239 880</h3>
+            <h2>Zapraszamy</h2>
+
+     </div>
+
+    <button class="tablink" onclick="openCity('London', this, 'orange')" id="defaultOpen">Przewóz osób</button>
+    <button class="tablink" onclick="openCity('Paris', this, 'green')">Prawo jazdy</button>
+
+    </div>
+
+    <div class="item4">
+
+    </div>
+
+
+</div>
+
+<script>
+function openCity(cityName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(cityName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+{% endblock content %}

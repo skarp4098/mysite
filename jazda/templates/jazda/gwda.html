@@ -1,0 +1,104 @@
+{% extends 'pattern2.html' %}
+
+{% block title %}
+    {{ page_title }} Gwda - odjazdy
+{% endblock title %}
+
+{% block content %}
+<div class="grid-container-one_col">
+
+    <div class="item1">
+        <h3 style="text-align: center; color: #4a3079; font-size:20px">
+          GWDA <br> <span style="font-size: 16px"> odjazdy w kierunku m. {{kierunek|upper}} </span>
+        </h3>
+    </div>
+
+    <div class="item2">
+          {% for key, value_r in rozklad_tam.items %}
+
+            <table style="margin-left: auto; margin-right: auto; box-shadow: 10px 10px 10px #888888">
+                <caption>
+                  {{ key|upper }} - rozklad jazdy ważny od {{ value_r.od }}
+                </caption>
+                <tr>
+                    <th rowspan="{{ value_r.liczba_przyst|add:2 }}" width="30px" style="background-color:#4a3079">
+                        <p>p<br>r<br>z<br>y<br>s<br>t<br>a<br>n<br>k<br>i</p>
+                    </th>
+                     <th colspan="2">godziny</th>
+                    {% for od_do in value_r.etykiety_godzin %}   <th align="center">{{ od_do }}</th> {% endfor %}
+                </tr>
+            {% for key, value in value_r.przystanek.items %}
+                <tr>
+                    <td>
+                        <a href="{% url 'jazda:przystanek' value.id 0  %}"> {{ key|upper }}</a>
+                        <br>
+                        {{ value.opis }}
+                    </td>
+                    {% if forloop.first %}
+                    <th rowspan="{{ value_r.liczba_przyst }}" width="30px"> <p>m<br>i<br>n<br>u<br>t<br>y</p> </th>
+                    {% endif %}
+                    {% for item in value.godzina.items %}
+                             <td style="text-align: center">
+                                   {% for i in item %}
+                                     {% for j in i.values %}
+                                      {# jeśli w ciągu godziny więcej niż jeden odjazd #}
+                                        {% if j|length_is:"2" %}
+                                           {% for z in j %}
+                                           {# jeśli odjazd w sobotę i s jest w minucie odjazdu #}
+                                              {% if "s" in z %}
+                                                  <span style="color: red;">
+                                                      {{z}}
+                                                  </span>
+                                                {% else %}
+                                                  {{z}}
+                                              {% endif %}
+                                           {# przy pierwszej pętli polecenie nowego wiersza #}
+                                              {% if forloop.first %}
+                                                    <br>
+                                              {% endif %}
+                                           {% endfor %}
+                                        {# to samo dla pojedyńczych odjazdów #}
+                                           {% else %}
+                                           {% if "s" in j %}
+                                            <span style="color: red;">
+                                               {{j}}
+                                            </span>
+                                            {% else %}
+                                              {{j}}
+                                            {% endif %}
+                                        {% endif %}
+
+                                     {% endfor %}
+                                  {% endfor %}
+
+
+                             </td>
+
+                    {% endfor %}
+
+                </tr>
+
+            {% endfor%}
+
+                <tr>
+                    <th colspan="{{ value_r.etykiety_godzin|length|add:2 }}" style="text-align: left;
+                     background-color: #4a3079">
+                            <sup>S</sup> - kursuje tylko w sobotę
+
+                    </th>
+                </tr>
+
+            </table>
+
+            <br>
+
+         {% endfor%}
+
+    </div>
+
+    <div class="item4">
+
+    </div>
+</div>
+
+{% endblock content %}

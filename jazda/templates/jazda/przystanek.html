@@ -1,0 +1,103 @@
+{% extends 'pattern2.html' %}
+
+{% block title %}
+    {{ page_title }} Przystanek
+{% endblock title %}
+
+{% block content %}
+
+
+<div class="grid-container-one_col">
+
+    <div class="item1">
+        <h3 style="text-align: center; color: #4a3079; font-size:20px">
+             {{ miasto|upper }} <br>
+             <span style="font-size: 16px">
+                {{ spot|upper }} wszystkie odjazdy z przystanku &nbsp;  / &nbsp; kierunek: {{ kierunek|upper }}
+             </span>
+        </h3>
+    </div>
+
+    <div class="item2">
+        {% for key, value in przystanek.items %}
+
+            <table style="margin-left: auto; margin-right: auto; box-shadow: 10px 10px 10px #888888">
+                <caption>
+                     {{ key|upper }} - rozklad jazdy ważny od {{ value.od }}
+                </caption>
+                <tr>
+                    <th rowspan="4" width="30px" style="background-color: #4a3079">
+                        {% for item in etykieta_th %}
+                            {% for i in item %}
+                                {{ i }} <br>
+                            {% endfor%}
+                        {% endfor%}
+                    </th>
+                    <th colspan="2" height="30px" >godziny</th>
+                    {% for od_do in value.etykiety_godzin %}
+                    <th align="center">  {{ od_do }}  </th>
+                    {% endfor %}
+                </tr>
+
+               {% for value in value.przystanek.values %}
+                  <tr>
+
+                    <td>dzień powszedni</td>
+                    <th rowspan=2; width=25px;> <p>m<br>i<br>n<br>u<br>t<br>y</p> </th>
+
+                    {% for item in value.godzina.items %}
+                             <td style="text-align: center;">
+                                     {% for i in item %}
+                                            {% for i in i.daily %}
+                                                 {{ i }}
+                                            {% endfor %}
+                                     {% endfor %}
+                             </td>
+                    {% endfor %}
+                  </tr>
+              {% endfor%}
+
+              {% for key, value in value.przystanek.items %}
+                <tr>
+                    <td>sobota</td>
+
+                    {% for item in value.godzina.items %}
+                             <td style="text-align: center;">
+
+                                     {% for i in item %}
+
+                                            {% for i in i.sobota %}
+                                                 {{ i }}
+                                            {% endfor %}
+
+                                     {% endfor %}
+
+                             </td>
+
+                    {% endfor %}
+              {% endfor %}
+
+                </tr>
+
+                 <tr>
+                    <th colspan="{{ value.etykiety_godzin|length|add:2 }}" style="text-align: left;
+                     background-color: #4a3079"; height="25px">
+                            <sup>S</sup> - kursuje tylko w sobotę &nbsp;
+                      {% if zjazd %}  <sup>Z</sup> - kurs do Skotnik {% endif %}
+                    </th>
+                </tr>
+            </table>
+        {% endfor %}
+
+    </div>
+
+    <div class="item4">
+
+    </div>
+</div>
+
+{% endblock content %}
+
+
+
+

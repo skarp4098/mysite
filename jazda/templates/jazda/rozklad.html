@@ -1,0 +1,232 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rozklad glowny</title>
+</head>
+<body>
+<h2>
+    Zaczynam 31-05-2022
+</h2>
+{% for item in godz %}
+    {{ item.id }}
+{% endfor%}
+
+<br><br>
+{{ godzinki }}
+
+{% for item in obj %}
+    {{ item.powrot }}
+{% endfor%}
+
+   {# {{ item.nazwa }} {{ item.opis }} {{ item.godzina }} #}
+
+
+<br><br>
+<p>zmienna rozklad</p>
+    {{ rozklad }}
+
+
+<br><br>
+{# {{ godziny_od_do }}  <th> {{ 'minuty'|wordwrap:4 }}</th>   #}
+
+{{ etykieta_godziny }}
+
+{{ etykieta_minuty }}
+
+<p>metoda objects.values_list() returns tuples</p>
+    {{ godziny_lists }}
+
+<br><br>
+<p>metoda objects.all() returns QuerySet</p>
+ {{ godziny }}
+
+<br><br>
+
+<p>metoda objects.values() returns Python dictionary</p>
+
+{{ godziny_od_do  }}
+<br>
+<div style="overflow-x: auto;">
+<table border="1">
+    <caption>Odjazdy: wszystkie </caption>
+    <tr>
+        <th width="200">godziny</th>
+        {% for od_do_all in godz_od_do_all %}
+          <th width="70">{{ od_do_all }}</th>
+        {% endfor%}
+
+    </tr>
+
+    {% for key, value in rozklad.items %}
+    {# for key, value in roz_szek.items #}
+        <tr>
+            <td>
+               {# <a href="/jazda/przystanek/#{{ value.id}}"> {{ key }}</a> #}
+                {{ key }}
+                <br>
+                {{ value.opis }}
+            </td>
+            {% for item in value.odjazd.godzina.items %}
+                 <td align="center">
+
+                     {% if item|length > 1 %}
+
+                         {% for i in item %}
+                             {% if i.min|length > 1 %}
+                                {% for i in i.min %}
+                                     {{ i }}
+                                {% endfor %}
+                             {% else %}
+                               {{ i.min }}
+                             {% endif %}
+                         {% endfor %}
+                     {% else %}
+                         {{ item }}
+                     {% endif %}
+
+                            {% comment %}    {{ item }}  {% endcomment %}
+                 </td>
+            {% empty %}
+            {% endfor%}
+
+
+        </tr>
+
+    {% endfor%}
+    <th colspan="{{ colspan_len }}" align="left"> <sup>*</sup> - kurs do Skotnik</th>
+
+</table>
+</div>
+<br><br>
+
+<table border="1">
+    <caption>Odjazdy: Szczecinek -> Czarne </caption>
+    <tr>
+        <th width="200">godziny</th>
+        {% for od_do in ety_godz_szek %}
+          <th width="70">{{ od_do }}</th>
+        {% endfor%}
+
+    </tr>
+
+    {% for key, value in roz_szek.items %}
+        <tr>
+            <td>
+                <a href="{% url 'jazda:przystanek' value.id 0  %}"> {{ key }}</a>
+                <br>
+                {{ value.opis }}
+            </td>
+            {% for item in value.odjazd.godzina.items %}
+                 <td align="center">
+
+                     {% if item|length > 1 %}
+
+                         {% for i in item %}
+                             {% if i.min|length > 1 %}
+                                {% for i in i.min %}
+                                     {{ i }}
+                                {% endfor %}
+                             {% else %}
+                               {{ i.min }}
+                             {% endif %}
+                         {% endfor %}
+                     {% else %}
+                         {{ item }}
+                     {% endif %}
+
+                            {% comment %}    {{ item }}  {% endcomment %}
+                 </td>
+
+            {% endfor %}
+
+
+        </tr>
+
+    {% endfor%}
+
+</table>
+
+<br><br>
+
+<table border="1">
+    <caption>Odjazdy: Czarne -> Szczecinek </caption>
+
+    <tr>
+        <th width="200">godziny</th>
+        {% for od_do_powrot in ety_godz_powrot %}
+          <th width="70">{{ od_do_powrot }}</th>
+        {% endfor%}
+
+    </tr>
+
+    {% for key, value in roz_powrot.items %}
+        <tr>
+            <td>
+                <a href="{% url 'jazda:przystanek' value.id 1  %}"> {{ key }}</a>
+                <br>
+                {{ value.opis }}
+            </td>
+
+            {% for item in value.odjazd.godzina.items %}
+
+                 <td align="center">
+
+                     {% if item|length > 1 %}
+
+                         {% for i in item %}
+                             {% if i.min|length > 1 %}
+                                {% for i in i.min %}
+                                     {{ i }}
+                                {% endfor %}
+                             {% else %}
+                               {{ i.min }}
+                             {% endif %}
+                         {% endfor %}
+                     {% else %}
+                         {{ item }}
+                     {% endif %}
+
+                            {% comment %}    {{ item }}  {% endcomment %}
+                 </td>
+
+            {% endfor %}
+
+
+        </tr>
+
+    {% endfor%}
+<th colspan="{{ colspan_len }}" align="left">* - kurs do Skotnik</th>
+</table>
+
+
+<br>
+<table>
+    <tr>
+    <th>Lista przystanków</th>
+    </tr>
+    {% for przystanek in przystanki %}
+
+        <tr>
+            <td>{{ przystanek.nazwa }}</td>
+        </tr>
+    {% endfor%}
+</table>
+<br>
+<table>
+    <tr>
+    <th>Godziny</th>
+    </tr>
+    {% for godzina in godziny %}
+    <tr>
+       <td>  {{ godzina }} </td>
+    </tr>
+    {% endfor %}
+
+</table>
+</body>
+</html>

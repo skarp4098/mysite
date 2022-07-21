@@ -1,0 +1,46 @@
+{% extends 'pattern2.html' %}
+
+{% block title %}
+    {{ page_title }} Przystanki
+{% endblock title %}
+
+{% block content %}
+
+<div class="grid-container-two_col">
+
+    <div class="item1">
+         <h3 style="text-align: left; padding-left: 8px; color: #4a3079; font-size:20px">
+             Przystanki BT "MONIKA"
+         </h3>
+    </div>
+
+    <div class="item2">
+         <h3 style="text-align: left; padding-left: 8px; color: #4a3079">{{ kierunek_tam }}</h3>
+         {% for key, value in przystanki_tam.items %}
+       <ul>
+           <li style="padding-left: 5px; color: #4a3079; "> {{ forloop.counter }}.
+               <a class="lista" href="{% url 'jazda:przystanek' value.id 0 %}"> {{ key|upper }}, {{ value.opis }} </a>
+           </li>
+       </ul>
+         {% endfor %}
+
+    </div>
+
+
+  <div class="item3">
+      <h3 style="text-align: left; padding-left: 8px; color: #4a3079">{{ kierunek_powrot }}</h3>
+      {% for key, value in przystanki_powrot.items %}
+      <ul>
+         <li style="padding-left: 5px; color: #4a3079; "> {{ forloop.counter }}.
+             <a class="lista" href="{% url 'jazda:przystanek' value.id 1 %}"> {{ key|upper }}, {{ value.opis }} </a>
+         </li>
+      </ul>
+       {% endfor %}
+
+  </div>
+
+ <div class="item4">
+
+ </div>
+</div>
+{% endblock content %}
