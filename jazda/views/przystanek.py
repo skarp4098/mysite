@@ -182,8 +182,10 @@ def rozklad_dla_przystanku(powrot, przyst_id):
 
 def przystanek(request, value_id, powrot=0): # value_id to przystanek_id
 
-    ety_kier = ['Szczecinek >> Gwda >> Czarne', 'Czarne >> Gwda >> Szczecinek']
+    ety_kier = ['Gwda >> Czarne', 'Gwda >> Szczecinek']
     kierunek = ety_kier[powrot]
+    if value_id == 1:
+        kierunek = ' Szczecinek >> Gwda >> Czarne'
     spot = get_object_or_404(Przystanek, id=value_id)
    # ulica = False bylo if ulica na stronie
     zjazd = True
@@ -194,8 +196,8 @@ def przystanek(request, value_id, powrot=0): # value_id to przystanek_id
         temp = str(spot).lstrip(", ul.")
         x = temp.find(",")
         etykieta_th = temp[0:x]
-        # x = etykieta_th.find(" ")
-        # etykieta_th = etykieta_th[0:x]
+        #x = etykieta_th.find(" ")
+        #etykieta_th = etykieta_th[0:x]
      #   ulica = True
     else:
         x = str(spot).find(",")

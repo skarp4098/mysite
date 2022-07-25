@@ -41,7 +41,7 @@
                     {% endif %}
                     {% for item in value.godzina.items %}
                              <td style="text-align: center">
- {% for i in item %}
+                                   {% for i in item %}
                                      {% for j in i.values %}
                                       {# jeśli w ciągu godziny więcej niż jeden odjazd #}
                                         {% if j|length_is:"2" %}

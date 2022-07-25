@@ -19,7 +19,7 @@ from django.urls import include, path
 from . import contact
 
 urlpatterns = [
-    #path('', include('events.urls')),
+    path('', include('jazda.urls')),
     path('jazda/', include('jazda.urls')),
    # path('myclub/', include('myclub.urls')),
    # path('polls/', include('polls.urls')),

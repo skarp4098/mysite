@@ -20,7 +20,7 @@
 
    <div class="header_main">
 
-        <h1 style="color: white; padding: 10px; ">Biuro Turystyczne "MONiKA" &nbsp;
+        <h1 style="color: white; padding: 8px; ">Biuro Turystyczne "MONiKA" &nbsp;
             <span style="font-family: Bilbo; text-shadow: 2px 2px 4px white;">  jeździmy dla WAS od 1991 roku !</span>
         </h1>
 
@@ -28,7 +28,7 @@
    </div>
 
    <div class="topnav" id="myTopnav">
-      <a href="/jazda" class="active">Start</a>
+      <a href="{% url 'jazda:index' %}" class="active">Start</a>
       <a href="{% url 'jazda:przystanek' 1 0 %}">Skotniki</a>
 
       <div class="dropdown">
@@ -36,8 +36,8 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content" id="myDropdown1">
-           <a href="{% url 'jazda:szczecinek'%}">Czarne</a>
-           <a href="{% url 'jazda:skotniki'%}">Skotniki</a>
+           <a href="{% url 'jazda:szczecinek' %}">Czarne</a>
+           <a href="{% url 'jazda:skotniki' %}">Skotniki</a>
         </div>
       </div>
 
@@ -46,44 +46,36 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content" id="myDropdown2">
-           <a href="/jazda/gwda">Czarne</a>
-           <a href="{% url 'jazda:gwdapowrot'%}">Szczecinek</a>
+           <a href="{% url 'jazda:gwda' %}">Czarne</a>
+           <a href="{% url 'jazda:gwdapowrot' %}">Szczecinek</a>
         </div>
        </div>
 
-      <a href="/jazda/czarne">Czarne</a>
-      <a href="/jazda/soboty">Sobota</a>
-      <a href="/jazda/przystanki">Przystanki</a>
-     {# <a href="/jazda/przyst">przyst</a> #}
+      <a href="{% url 'jazda:czarne' %}">Czarne</a>
+      <a href="{% url 'jazda:soboty' %}">Sobota</a>
+     {# <a href="{% url 'jazda:przyst' %}">przyst</a> #}
 
       <div class="dropdown">
         <button class="dropbtn" onclick="dropFunction3()">Więcej
           <i class="fa fa-caret-down"></i>
         </button>
         <div id="myDropdown3" class="dropdown-content">
-           <a href="/jazda/oferta">Oferta</a>
-           <a href="/jazda/bilety">Bilety miesięczne</a>
-           <a href="/jazda/ulgi">Ulgi na przejazdy</a>
+           <a href="{% url 'jazda:przystanki' %}">Przystanki</a>
+           <a href="{% url 'jazda:oferta' %}">Oferta</a>
+           <a href="{% url 'jazda:bilety' %}">Bilety miesięczne</a>
+           <a href="{% url 'jazda:ulgi'  %}">Ulgi na przejazdy</a>
            <a href="#contact">Do pobrania !</a>
         </div>
        </div>
       <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-       <div class="topnav-right" id="txt"></div>
+
 
    </div>
 
 
         <div class="column side">
 
-                        <div class="card">
-                            <div class="header">
-                                <p style="font-size: 20px;">Strona w budowie</p>
-                            </div>
-                        </div>
 
-                        <div class="container">
-                            <p style="color: white">January 1, 2021</p>
-                        </div>
         </div>
 
 
@@ -101,14 +93,42 @@
 
 
         <div class="footer_main">
-            Copyright &copy;
-              <script type="text/JavaScript">
-                  document.write(new Date().getFullYear());
-              </script> skarp
+          strona w budowie ver. 2507
         </div>
 
 
+
 <script>
+// Set the date we're counting down to
+var countDownDate = new Date("Aug 31, 2022 23:59:59").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is over, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+
+
 function startTime() {
   const today = new Date();
   let h = today.getHours();

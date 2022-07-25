@@ -2,6 +2,12 @@
     wimbledon fiolet #4a3079
     zielenBaner #04AA6D
 
+              Copyright &copy;
+              <script type="text/JavaScript">
+                  document.write(new Date().getFullYear());
+              </script> skarp444
+
+
     {{ item|wordwrap:1 }}
     https://docs.djangoproject.com/en/4.0/ref/templates/builtins/#filter
 

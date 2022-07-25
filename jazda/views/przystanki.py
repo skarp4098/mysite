@@ -5,7 +5,7 @@ def make_url(przyst_id, przystanki):
     tam = []
     powrot = []
     paczka_url = []
-    url = "jazda/przystanek/"
+    url = "przystanek/"
     godzina_items = Godzina.objects.filter(przystanek_id=przyst_id)
     przystanek = przystanki.filter(id=przyst_id)
 

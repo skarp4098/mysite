@@ -19,56 +19,66 @@
     </div>
 
     <div class="item2">
-        {% for key, value in przystanek.items %}
+        {% for key, value_p in przystanek.items %}
 
             <table style="margin-left: auto; margin-right: auto; box-shadow: 10px 10px 10px #888888">
                 <caption>
-                     {{ key|upper }} - rozklad jazdy ważny od {{ value.od }}
+                     {{ key|upper }} - rozklad jazdy ważny od {{ value_p.od }}
                 </caption>
                 <tr>
                     <th rowspan="4" width="30px" style="background-color: #4a3079">
                         {% for item in etykieta_th %}
                             {% for i in item %}
-                                {{ i }} <br>
+                              <span style="font-size: 14px">  {{ i }} </span>
                             {% endfor%}
                         {% endfor%}
                     </th>
                     <th colspan="2" height="30px" >godziny</th>
-                    {% for od_do in value.etykiety_godzin %}
+                    {% for od_do in value_p.etykiety_godzin %}
                     <th align="center">  {{ od_do }}  </th>
                     {% endfor %}
                 </tr>
 
-               {% for value in value.przystanek.values %}
-                  <tr>
+               {% for value in value_p.przystanek.values %}
+                  <tr  height="25px">
 
-                    <td>dzień powszedni</td>
+                    <td height="25px">dzień powszedni</td>
                     <th rowspan=2; width=25px;> <p>m<br>i<br>n<br>u<br>t<br>y</p> </th>
 
-                    {% for item in value.godzina.items %}
-                             <td style="text-align: center;">
-                                     {% for i in item %}
-                                            {% for i in i.daily %}
-                                                 {{ i }}
-                                            {% endfor %}
+                    {% for item_g in value.godzina.items %}
+                             <td style="text-align: center; height=25px">
+                                     {% for value in item_g %}
+                                         {% if value.daily|length_is:"2" %}
+                                                {% for item in value.daily %}
+                                                    {{ item }}
+
+                                                {% endfor %}
+                                         {% else %}
+                                            {{ value.daily }}
+                                         {% endif %}
+
                                      {% endfor %}
                              </td>
                     {% endfor %}
                   </tr>
               {% endfor%}
 
-              {% for key, value in value.przystanek.items %}
-                <tr>
-                    <td>sobota</td>
+              {% for key, value in value_p.przystanek.items %}
+                <tr  height="25px">
+                     <td height="25px">sobota</td>
 
-                    {% for item in value.godzina.items %}
-                             <td style="text-align: center;">
+                    {% for item_g in value.godzina.items %}
+                             <td style="text-align: center; height=25px">
 
-                                     {% for i in item %}
+                                    {% for value in item_g %}
+                                         {% if value.sobota|length_is:"2" %}
+                                                {% for item in value.sobota %}
+                                                    {{ item }}
 
-                                            {% for i in i.sobota %}
-                                                 {{ i }}
-                                            {% endfor %}
+                                                {% endfor %}
+                                         {% else %}
+                                            {{ value.sobota }}
+                                         {% endif %}
 
                                      {% endfor %}
 
@@ -80,8 +90,8 @@
                 </tr>
 
                  <tr>
-                    <th colspan="{{ value.etykiety_godzin|length|add:2 }}" style="text-align: left;
-                     background-color: #4a3079"; height="25px">
+                    <th colspan="{{ value_p.etykiety_godzin|length|add:2 }}" style="text-align: left; font-size: 14px;
+                     background-color: #4a3079"; height="25px";>
                             <sup>S</sup> - kursuje tylko w sobotę &nbsp;
                       {% if zjazd %}  <sup>Z</sup> - kurs do Skotnik {% endif %}
                     </th>
