@@ -6,40 +6,6 @@
 body {
   margin: 0;
 }
-/* strona oferta.html */
-.tablink {
-  background-color: #555;
-  color: white;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  font-size: 17px;
-  width: 50%;
-}
-
-.tablink:hover {
-  background-color: #777;
-}
-
-/* Style the tab content */
-.tabcontent {
-  color: white;
-  display: none;
-  padding: 50px;
-  text-align: center;
-}
-
-#London {background-color:orange;}
-#Paris {background-color:green;}
-
-/* koniec oferta.html*/
-
-.bilety {
-    margin-left: 5px;
-    column-count: 3;
-}
 
 /* index.html */
 .columnindex {
@@ -52,97 +18,13 @@ div.columnindex:hover{
     background-color: #d1d1d1
 }
 
-/* uligi.html */
-mark {
-  background-color: #04AA6D;
-  color: white;
-  padding: 1px;
-}
-
-/* karta kalendarza */
-div.card {
-  width: auto;
-  margin-left: auto;
-
-  box-shadow: 6px 8px 8px #888888;
-  text-align: center;
-}
-
-div.header {
-  background-color: #4CAF50;
-  color: white;
-  height: 180px;
-  padding: 1px;
-  font-size: 20px;
-}
-
-div.container {
-  padding: 10px;
-}
-/* karta kalendarza koniec */
-
-#rcorners2 {
-  border-radius: 25px;
-  background: #4a3079;
-  border: 2px solid white;
-  padding: 23px;
-  width: 650px;
-  height: 90px;
-  color: white;
-  text-align: center;
-  text-shadow: 2px 2px 4px white;
-  font-size: 30px;
-  box-shadow: 10px 10px 10px white;
-
-}
-
-#rcorners3 {
-  border-radius: 25px;
-  background: #fff;
-  border: 1px solid white;
-  padding: 4px;
-  width: 60%;
-  color: #4a3079;
-  font-size: 20px;
-  box-shadow: 8px 8px 8px white;
-  text-align: center;
-}
-
-img {
-  border-radius: 5%;
-}
-img:hover {
-    animation: shake 0.5s;
-    animation-iteration-count: infinite;
-}
-
-@keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
-
-.mask2 {
-  -webkit-mask-image: radial-gradient(circle, black 50%, rgba(0, 0, 0, 0.5) 50%);
-  mask-image: radial-gradient(circle, black 50%, rgba(0, 0, 0, 0.5) 50%);
-  float: right;
- /* padding: 15px; */
-  filter: hue-rotate(180deg);
-}
-
-
 /* Style the header */
 .header_main {
   background-color: #04aa6d;
-  padding: 6px;
+  padding: 10px 20px;
+  /*padding-left: 10px;*/
+  width: 100%;
+  font-size: 1vw;
 
 }
 
@@ -276,22 +158,36 @@ img:hover {
   }
 }
 
-
 /* koniec belki topnav */
 
-#canvas {
-    background-color:#4a3079;
-    float: right;
-    width: 100%;
-   /* width: auto;
-    margin-left: auto;
-    margin-right: auto; */
-    box-shadow: 8px 8px 8px #888888;
 
+
+/* soboty.html*/
+
+
+.row {
+  margin-left:-5px;
+  margin-right:-5px;
 }
 
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.column {
+width:50%;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+   width: 100%;
+  }
+}
+/* koniec soboty*/
+
 .content {
-    padding: 10px;
+    padding: 2px;  /* było 10px 2607*/
 }
 
 .sticky {
@@ -300,7 +196,7 @@ img:hover {
     width: 100%
 }
 
-.sticky + content {
+.sticky + .content {
     padding-top: 60px;
 }
 
@@ -323,6 +219,8 @@ img:hover {
 /* Middle column */
 .column.middle {
   width: 76%;
+  padding: 0 10px;
+  overflow-x:auto;
 }
 
 /* Clear floats after the columns */
@@ -342,14 +240,14 @@ img:hover {
 /* Style the footer */
 .footer_main {
    position: fixed;
-   left: 0;
    bottom: 0;
    width: 100%;
-   padding: 10px;
-   font-size: 15px;
-   background-color: #d1d1d1;
-   color: black;
+   font-size: 14px;
+   background-color: #026b4e;
+   color: white;
    text-align: center;
+
+
 }
 
 
@@ -369,12 +267,13 @@ img:hover {
 .item4 { grid-area: footer; height: auto; }
 
 .grid-przystanki {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  background-color: #04AA6D;    /* #2196F3; */
+ /* display: grid;
+  grid-template-columns: auto auto auto auto; */
+  background-color: white;    /* #2196F3; */
   border-left: 10px solid #026b4e;
   border-right: 10px solid #4a3079;
   padding-left: 20px;
+  padding-bottom: 15px;
 }
 .grid-przystanek {
   background-color: white;/* rgba(255, 255, 255, 0.8); */
@@ -472,7 +371,8 @@ a {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  width: 98%;
+  width: 97%;
+
 }
 
 td, th {
@@ -492,10 +392,10 @@ th {
 tr:nth-child(even){background-color: #f1f1f1;}
 tr:hover {background-color: #ddd;}
 
-table.center {
+/*table.center {
   margin-left: auto;
   margin-right: auto;
-}
+}*/
 
 caption {
   display: table-caption;
@@ -513,4 +413,138 @@ caption {
 
 #scroll-to-top:hover{
    opacity:1;
+}
+
+/* strona oferta.html */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 50%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 50px;
+  text-align: center;
+}
+
+#London {background-color:orange;}
+#Paris {background-color:green;}
+
+/* koniec oferta.html*/
+
+.bilety {
+    margin-left: 5px;
+    column-count: 3;
+}
+
+/* uligi.html */
+mark {
+  background-color: #04AA6D;
+  color: white;
+  padding: 1px;
+}
+
+/* karta kalendarza */
+div.card {
+  width: auto;
+  margin-left: auto;
+
+  box-shadow: 6px 8px 8px #888888;
+  text-align: center;
+}
+
+div.header {
+  background-color: #4CAF50;
+  color: white;
+  height: 180px;
+  padding: 1px;
+  font-size: 20px;
+}
+
+div.container {
+  padding: 10px;
+}
+/* karta kalendarza koniec */
+
+
+#rcorners2 {
+  border-radius: 25px;
+  background: #4a3079;
+  border: 2px solid white;
+  padding: 23px;
+  width: 650px;
+  height: 90px;
+  color: white;
+  text-align: center;
+  text-shadow: 2px 2px 4px white;
+  font-size: 30px;
+  box-shadow: 10px 10px 10px white;
+
+}
+
+#rcorners3 {
+  border-radius: 25px;
+  background: #fff;
+  border: 1px solid white;
+  padding: 4px;
+  width: 60%;
+  color: #4a3079;
+  font-size: 20px;
+  box-shadow: 8px 8px 8px white;
+  text-align: center;
+}
+
+
+img {
+  border-radius: 5%;
+}
+img:hover {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.mask2 {
+  -webkit-mask-image: radial-gradient(circle, black 50%, rgba(0, 0, 0, 0.5) 50%);
+  mask-image: radial-gradient(circle, black 50%, rgba(0, 0, 0, 0.5) 50%);
+  float: right;
+ /* padding: 15px; */
+  filter: hue-rotate(180deg);
+}
+
+#canvas {
+    background-color:#4a3079;
+    float: right;
+    width: 100%;
+   /* width: auto;
+    margin-left: auto;
+    margin-right: auto; */
+    box-shadow: 8px 8px 8px #888888;
+
 }

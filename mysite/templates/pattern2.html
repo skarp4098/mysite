@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Sylwester Karpiński">
     <link href='https://fonts.googleapis.com/css?family=Bilbo' rel='stylesheet'>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>
         {% block title %}
@@ -20,10 +21,9 @@
 
    <div class="header_main">
 
-        <h1 style="color: white; padding: 8px; ">Biuro Turystyczne "MONiKA" &nbsp;
-            <span style="font-family: Bilbo; text-shadow: 2px 2px 4px white;">  jeździmy dla WAS od 1991 roku !</span>
-        </h1>
-
+        <h2 style="color: white; ">Biuro Turystyczne "MONiKA" &nbsp;
+            <span style="font-family: Bilbo; text-shadow: 2px 2px 4px white; ">  jeździmy dla WAS od 1991 roku !</span>
+        </h2>
 
    </div>
 
@@ -87,13 +87,11 @@
 
         <div class="column side">
 
-            <canvas id="canvasX" width="200" height="200"></canvas>
-
         </div>
 
 
         <div class="footer_main">
-          strona w budowie ver. 2507
+         <p>strona w budowie ver. 2507</p>
         </div>
 
 
@@ -169,7 +167,9 @@ window.onclick = function(event) {
   }
 }
 
+
 window.onscroll = function() {xFunction()};
+
 var x = document.getElementById("myTopnav");
 var sticky = x.offsetTop;
 

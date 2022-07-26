@@ -14,19 +14,19 @@
         </h3>
   </div>
 
-    {{ slownik }}
 
   <div class="item2">
 
          {% for key, value_r in rozklad_tam.items %}
 
-            <div style="overflow-x:auto;">
-            <table style="margin-left: auto; margin-right: auto; box-shadow: 10px 10px 10px #888888">
+
+            <table style="margin-left: auto; margin-right: auto; box-shadow: 10px 10px 10px #888888; padding-right: 5px;">
                 <caption>
                  {{ key|upper }} - rozklad jazdy ważny od {{ value_r.od }}
                 </caption>
                 <tr>
-                    <th rowspan="{{ value_r.liczba_przyst|add:2 }}" width="30px" style="background-color:#4a3079">
+                    <th rowspan="{{ value_r.liczba_przyst|add:2 }}" width="30px" style="background-color:#4a3079;
+                     font-size: 14px;">
                         <p>p<br>r<br>z<br>y<br>s<br>t<br>a<br>n<br>k<br>i</p>
                     </th>
                      <th colspan="2">godziny</th>
@@ -81,15 +81,15 @@
             {% endfor%}
 
                 <tr>
-                    <th colspan="{{ value_r.etykiety_godzin|length|add:2 }}" style="text-align: left;
+                    <th colspan="{{ value_r.etykiety_godzin|length|add:2 }}" style="text-align: left; font-size: 14px;
                      background-color: #4a3079">
                             <sup>S</sup> - kursuje tylko w sobotę
                     </th>
                 </tr>
 
             </table>
-            </div>
-            <br>
+
+
 
          {% endfor%}
 

@@ -24,10 +24,10 @@ with open(os.path.join(BASE_DIR, 'secret_key.txt')) as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
-DEBUG = False
+DEBUG = True
+#DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '172.105.70.133', '172.104.230.69']
+ALLOWED_HOSTS = ['127.0.0.1', '172.105.70.133', '172.104.230.69', '192.168.88.25']
 
 
 # Application definition

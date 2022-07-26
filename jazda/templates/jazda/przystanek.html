@@ -26,7 +26,7 @@
                      {{ key|upper }} - rozklad jazdy ważny od {{ value_p.od }}
                 </caption>
                 <tr>
-                    <th rowspan="4" width="30px" style="background-color: #4a3079">
+                    <th rowspan="4" width="25px" style="background-color: #4a3079">
                         {% for item in etykieta_th %}
                             {% for i in item %}
                               <span style="font-size: 14px">  {{ i }} </span>
@@ -40,7 +40,7 @@
                 </tr>
 
                {% for value in value_p.przystanek.values %}
-                  <tr  height="25px">
+                  <tr height="25px">
 
                     <td height="25px">dzień powszedni</td>
                     <th rowspan=2; width=25px;> <p>m<br>i<br>n<br>u<br>t<br>y</p> </th>
@@ -91,7 +91,7 @@
 
                  <tr>
                     <th colspan="{{ value_p.etykiety_godzin|length|add:2 }}" style="text-align: left; font-size: 14px;
-                     background-color: #4a3079"; height="25px";>
+                     background-color: #4a3079; height=25px;">
                             <sup>S</sup> - kursuje tylko w sobotę &nbsp;
                       {% if zjazd %}  <sup>Z</sup> - kurs do Skotnik {% endif %}
                     </th>

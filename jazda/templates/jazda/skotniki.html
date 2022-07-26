@@ -22,7 +22,7 @@
                      {{ key|upper }} - rozklad jazdy ważny od {{ value_r.od }}
                 </caption>
                 <tr>
-                    <th rowspan="{{ value_r.liczba_przyst|add:2 }}" width="30px" style="background-color:#4a3079">
+                    <th rowspan="{{ value_r.liczba_przyst|add:2 }}" width="30px" style="background-color:#4a3079; font-size: 14px;">
                         <p>p<br>r<br>z<br>y<br>s<br>t<br>a<br>n<br>k<br>i</p>
                     </th>
                      <th colspan="2">godziny</th>
@@ -81,7 +81,7 @@
               {% endfor%}
                  <tr>
                     <th colspan="{{ value_r.etykiety_godzin|length|add:2 }}" width="30px" style="text-align: left;
-                     background-color: #4a3079">
+                     background-color: #4a3079; font-size: 14px;">
                             <sup>S</sup> - kursuje tylko w sobotę &nbsp;
                     </th>
                 </tr>
