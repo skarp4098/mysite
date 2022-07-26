@@ -24,20 +24,18 @@ with open(os.path.join(BASE_DIR, 'secret_key.txt')) as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = False
+#DEBUG = True
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', '172.105.70.133', '172.104.230.69']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-   # 'events.apps.EventsConfig',
-   # 'myclub.apps.MyclubConfig',
+
     'jazda.apps.JazdaConfig',
-   # 'polls.apps.PollsConfig',
-    'django.contrib.admin',
+     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
