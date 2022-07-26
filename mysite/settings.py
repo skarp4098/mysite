@@ -20,22 +20,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-t8nkw+v44dvxg3dhoqpt00e%%t!j4sk5u2p0^r#1yqasa%f-0!'
+with open(os.path.join(BASE_DIR, 'secret_key.txt')) as f:
+    SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = False
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['172.104.230.69', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-   # 'events.apps.EventsConfig',
-   # 'myclub.apps.MyclubConfig',
     'jazda.apps.JazdaConfig',
-   # 'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
