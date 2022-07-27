@@ -40,7 +40,7 @@
                 </tr>
 
                {% for value in value_p.przystanek.values %}
-                  <tr height="25px">
+                  <tr>
 
                     <td height="25px">dzień powszedni</td>
                     <th rowspan=2; width=25px;> <p>m<br>i<br>n<br>u<br>t<br>y</p> </th>
@@ -91,9 +91,9 @@
 
                  <tr>
                     <th colspan="{{ value_p.etykiety_godzin|length|add:2 }}" style="text-align: left; font-size: 14px;
-                     background-color: #4a3079; height=25px;">
-                            <sup>S</sup> - kursuje tylko w sobotę &nbsp;
-                      {% if zjazd %}  <sup>Z</sup> - kurs do Skotnik {% endif %}
+                     background-color: #4a3079;">
+                            S - kursuje tylko w sobotę &nbsp
+                      {% if zjazd %} Z - odjazdy do Skotnik {% endif %}
                     </th>
                 </tr>
             </table>
