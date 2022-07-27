@@ -21,10 +21,9 @@ div.columnindex:hover{
 /* Style the header */
 .header_main {
   background-color: #04aa6d;
-  padding: 10px 20px;
+  padding: 8px 16px;
   /*padding-left: 10px;*/
   width: 100%;
-  font-size: 1vw;
 
 }
 
@@ -164,7 +163,6 @@ div.columnindex:hover{
 
 /* soboty.html*/
 
-
 .row {
   margin-left:-5px;
   margin-right:-5px;
@@ -240,12 +238,15 @@ width:50%;
 /* Style the footer */
 .footer_main {
    position: fixed;
+   left: 0;
    bottom: 0;
    width: 100%;
-   font-size: 14px;
+   font-size: 12px;
    background-color: #026b4e;
    color: white;
    text-align: center;
+   height: 45px;
+   border-bottom: 10px solid #4a3079;
 
 
 }
@@ -378,6 +379,7 @@ table {
 td, th {
   border: 1px solid #ddd;
   padding: 8px;
+  font-size: 14px;
 }
 
 th {
