@@ -29,7 +29,7 @@
                     <th rowspan="4" width="25px" style="background-color: #4a3079">
                         {% for item in etykieta_th %}
                             {% for i in item %}
-                              <span style="font-size: 14px">  {{ i }} </span>
+                              <span style="font-size: 12px">  {{ i }} </span>
                             {% endfor%}
                         {% endfor%}
                     </th>
@@ -64,7 +64,7 @@
               {% endfor%}
 
               {% for key, value in value_p.przystanek.items %}
-                <tr  height="25px">
+                <tr>
                      <td height="25px">sobota</td>
 
                     {% for item_g in value.godzina.items %}
@@ -92,7 +92,7 @@
                  <tr>
                     <th colspan="{{ value_p.etykiety_godzin|length|add:2 }}" style="text-align: left; font-size: 14px;
                      background-color: #4a3079;">
-                            S - kursuje tylko w sobotę &nbsp
+                            S - kursuje w sobotę &nbsp
                       {% if zjazd %} Z - odjazdy do Skotnik {% endif %}
                     </th>
                 </tr>
