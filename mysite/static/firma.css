@@ -219,6 +219,8 @@ width:50%;
   width: 76%;
   padding: 0 10px;
   overflow-x:auto;
+  /*border-left: 10px solid #026b4e;
+  border-right: 10px solid #4a3079;*/
 }
 
 /* Clear floats after the columns */
@@ -274,7 +276,7 @@ width:50%;
   border-left: 10px solid #026b4e;
   border-right: 10px solid #4a3079;
   padding-left: 20px;
-  padding-bottom: 15px;
+  padding-bottom: 20%;
 }
 .grid-przystanek {
   background-color: white;/* rgba(255, 255, 255, 0.8); */
@@ -294,12 +296,15 @@ width:50%;
     row-gap: 0px;
     background-color: #026b4e;
     padding: 0px;
+
 }
 
 .grid-container-one_col > div {
   background-color: #fff;
   padding: 0px 0;
-  font-size: 15px;
+  font-size: 14px;
+
+
  /* border: 1px #026b4e; */
 }
 
