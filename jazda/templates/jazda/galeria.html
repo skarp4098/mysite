@@ -1,0 +1,52 @@
+{% extends 'pattern2.html' %}
+{% load static %}
+
+{% block title %}
+    {{ page_title }} Galeria
+{% endblock title %}
+
+{% block content %}
+<div class="grid-container-one_col">
+<button onclick="topFunction()" id="myBtn" title="Go to top">powrót do góry</button>
+
+    <div class="item1">
+    </div>
+
+    <div class="item2">
+
+        <div class="bg-image img1">
+            <img src="{% static 'bt1.jpg' %}" alt="" class="responsive" style="float: left;
+            border-bottom: 15px solid white; " />
+        </div>
+        <div class="bg-image img2">
+            <img src="{% static 'bt2.jpg' %}" alt="" class="responsive" style="border-top: 15px solid white;" />
+        </div>
+        <div class="bg-image img3">
+            <img src="{% static 'bt3.jpg' %}" alt="" class="responsive"
+                 style="float: left; border-top: 15px solid white;"/>
+        </div>
+        <div class="bg-image img4">
+            <img src="{% static 'bt4.jpg' %}" alt="" class="responsive"
+                 style="border-top: 15px solid #4a3079;"/>
+        </div>
+        <div class="bg-image img5">
+            <img src="{% static 'bt5.jpg' %}" alt="" class="responsive"
+                 style="float: center; border-top: 15px solid white;"/>
+        </div>
+        <div class="bg-image img6">
+            <img src="{% static 'bt6.jpg' %}" alt="" class="responsive"
+                 style="float: left; border-top: 15px solid white;"/>
+        </div>
+
+
+        <div class="bg-text">Nasze autobusy</div>
+
+
+    </div>
+
+    <div class="item4">
+
+    </div>
+</div>
+
+{% endblock content %}

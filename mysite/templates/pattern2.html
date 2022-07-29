@@ -70,7 +70,8 @@
            <a href="{% url 'jazda:oferta' %}">Oferta</a>
            <a href="{% url 'jazda:bilety' %}">Bilety miesięczne</a>
            <a href="{% url 'jazda:ulgi'  %}">Ulgi na przejazdy</a>
-           <a href="#contact">Do pobrania !</a>
+           <a href="{% url 'jazda:galeria'  %}">Galeria</a>
+           {# <a href="#contact">Do pobrania !</a> #}
         </div>
        </div>
       <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
@@ -205,6 +206,28 @@ window.onclick = function(event) {
     }
   }
 }
+
+//Get the button:
+mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+
 //window.onscroll = function() {xFunction()};
 
 var x = document.getElementById("myTopnav");
