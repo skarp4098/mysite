@@ -11,7 +11,7 @@ body {
 .columnindex {
   float: left;
   width: 50%;
-  padding: 50px;
+  padding: 20px;
 }
 
 div.columnindex:hover{
@@ -21,10 +21,28 @@ div.columnindex:hover{
 /* Style the header */
 .header_main {
   background-color: #04aa6d;
-  padding: 8px 16px;
+  padding: 10px 18px;
   /*padding-left: 10px;*/
   width: 100%;
+}
 
+/* Style the footer */
+.footer_main {
+  /* position: fixed;
+   left: 0;
+   bottom: 0; */
+   width: 100%;
+   font-size: 14px;
+   background-color: white;
+   color: black;
+   text-align: center;
+  /* border-top: 15px solid #026b4e; */
+   border-bottom: 15px solid #4a3079;
+   }
+
+.responsive {
+  max-width: 100%;
+  height: auto;
 }
 
 /* Style the responsive top navigation bar */
@@ -206,7 +224,7 @@ width:50%;
 /* Create three unequal columns that floats next to each other */
 .column {
   float: left;
-  padding: 5px;
+  padding: 1px;
 }
 
 /* Left and right column */
@@ -217,10 +235,24 @@ width:50%;
 /* Middle column */
 .column.middle {
   width: 76%;
-  padding: 0 10px;
+  padding: 10px 10px;
   overflow-x:auto;
+  overflow-y:auto;
   /*border-left: 10px solid #026b4e;
   border-right: 10px solid #4a3079;*/
+}
+
+#bottomrowlogo {
+  position: absolute;
+  bottom: 0;
+
+}
+
+div.parent {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  border: 3px solid red;
 }
 
 /* Clear floats after the columns */
@@ -237,21 +269,6 @@ width:50%;
   }
 }
 
-/* Style the footer */
-.footer_main {
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   font-size: 12px;
-   background-color: #026b4e;
-   color: white;
-   text-align: center;
-   height: 45px;
-   border-bottom: 10px solid #4a3079;
-
-
-}
 
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
@@ -273,10 +290,10 @@ width:50%;
  /* display: grid;
   grid-template-columns: auto auto auto auto; */
   background-color: white;    /* #2196F3; */
-  border-left: 10px solid #026b4e;
-  border-right: 10px solid #4a3079;
+  border-left: 15px solid #026b4e;
+  border-right: 15px solid #4a3079;
   padding-left: 20px;
-  padding-bottom: 15%;
+  bottom: 0;
 }
 .grid-przystanek {
   background-color: white;/* rgba(255, 255, 255, 0.8); */
@@ -516,11 +533,13 @@ div.container {
 
 
 img {
-  border-radius: 5%;
+  border-radius: 0%;
+  float: right;
+  /*border-right: 10px solid red; */
 }
-img:hover {
+/*img:hover {
     animation: shake 0.5s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: infinite; */
 }
 
 @keyframes shake {

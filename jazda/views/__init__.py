@@ -15,3 +15,4 @@ from .etykiety import *
 from .ulgi import *
 from .oferta import *
 from .bilety import *
+from .galeria import *

@@ -10,7 +10,8 @@
 <div class="grid-container-one_col">
 
     <div class="item1">
-        <h3 style="text-align: center; color: #4a3079; font-size:20px">
+        <h3 style="text-align: center; color: #4a3079; font-size:18px">
+            <i class="fa-solid fa-bus-simple" style="color: #4a3079"></i>
              {{ miasto|upper }} <br>
              <span style="font-size: 16px">
                 {{ spot|upper }} wszystkie odjazdy z przystanku &nbsp;  / &nbsp; kierunek: {{ kierunek|upper }}
@@ -90,10 +91,11 @@
                 </tr>
 
                  <tr>
-                    <th colspan="{{ value_p.etykiety_godzin|length|add:2 }}" style="text-align: left; font-size: 12px;
+                    <th colspan="{{ value_p.etykiety_godzin|length|add:2 }}" style="text-align: left; font-size: 14px;
                      background-color: #4a3079;">
                             S - kursuje w sobotę &nbsp
                       {% if zjazd %} Z - odjazdy do Skotnik {% endif %}
+                        <span id=txt style="color: white; font-weight: bold; float: right;"></span>
                     </th>
                 </tr>
             </table>

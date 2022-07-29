@@ -2,6 +2,19 @@
     wimbledon fiolet #4a3079
     zielenBaner #04AA6D
 
+
+<p style="font-size: 25px; background-color: white;
+        border-right: 15px solid #4a3079; float: right;">
+</p>
+
+<i class="fa-solid fa-circle-phone-flip"></i>
+<i class="fa-solid fa-location-pin"></i>
+<i class="fa-solid fa-location-dot"></i>
+
+<i class="fa-solid fa-circle-info fa-lg" style="color: white; float: right; padding-right: 10px;"></i>
+
+border-right: 20px solid white; border-left: 20px solid white;
+
               Copyright &copy;
               <script type="text/JavaScript">
                   document.write(new Date().getFullYear());

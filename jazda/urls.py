@@ -18,6 +18,8 @@ urlpatterns = [
     path('ulgi/', views.ulgi, name='ulgi'),
     path('oferta/', views.oferta, name='oferta'),
     path('bilety/', views.bilety, name='bilety'),
+    path('galeria/', views.galeria, name='galeria'),
+
     # dla parametru string
     # path('<str:desire>', views.drive-challenge, name='drive-challenge'),
     #path('<str:desire>', OdjazdyListView.as_view(), name='drive-challenge')
