@@ -1,0 +1,24 @@
+{% extends 'pattern2.html' %}
+
+{% block title %}
+    {{ page_title }} Download
+{% endblock title %}
+
+{% block content %}
+<div class="grid-container-one_col">
+
+    <div class="item1">
+        <p style="text-align: center">header</p>
+    </div>
+
+    <div class="item2">
+        <h3>Download File using Django</h3>
+        <a href="{% url 'jazda:downloadfile' filename='Formularz.pdf' %}">Download PDF</a>
+    </div>
+
+    <div class="item4">
+
+    </div>
+</div>
+
+{% endblock content %}

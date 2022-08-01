@@ -28,15 +28,16 @@ div.columnindex:hover{
 
 /* Style the footer */
 .footer_main {
-  /* position: fixed;
+ /*  position: fixed;
    left: 0;
    bottom: 0; */
    width: 100%;
    font-size: 14px;
    background-color: white;
-   color: black;
+   color: #026b4e;
+   font-weight: bold;
    text-align: center;
-  /* border-top: 15px solid #026b4e; */
+   /* border-top: 15px solid #026b4e; */
    border-bottom: 15px solid #4a3079;
    }
 
@@ -116,6 +117,7 @@ div.columnindex:hover{
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+
 }
 
 .dropdown-content a {
@@ -206,14 +208,14 @@ div.columnindex:hover{
   background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
   color: white;
   font-weight: bold;
-  font-size: 70px;
+  font-size: 40px;
   border: 10px solid #f1f1f1;
   position: fixed;
-  top: 50%;
+  top: 68%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  width: 420px;
+  width: 350px;
   padding: 20px;
   text-align: center;
 }
@@ -608,8 +610,8 @@ img {
 #myBtn {
   display: none;
   position: fixed;
-  bottom: 80px;
-  right: 30px;
+  bottom: 60px;
+  right: 20px;
   z-index: 99;
   font-size: 18px;
   border: none;

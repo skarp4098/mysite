@@ -71,8 +71,8 @@ def godziny_dni_powszednie(przyst_id, rozkl_id, powrot, godzina):
 
     for item in godziny_powszednie:
         if not item.sobota:
-            odjazdy.append(str(item)[3:5] + "' ")
-            jeden_odjazd = str(item)[3:5] + "' "
+            odjazdy.append(str(item)[3:5]) # + "' ")
+            jeden_odjazd = str(item)[3:5] # + "' "
 
     if len(odjazdy) > 1:
         return odjazdy

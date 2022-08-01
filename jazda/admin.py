@@ -1,7 +1,22 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Przystanek, Godzina, Rozklad, Miasto
+from .models import Przystanek, Godzina, Rozklad, Miasto, Lokalizacja
+
+from django.contrib import admin
+from django_google_maps import widgets as map_widgets
+from django_google_maps import fields as map_fields
+
+
+# hybrid roadmap satellite terrain
+@admin.register(Lokalizacja)
+class LokalizacjaAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        map_fields.AddressField: {
+          'widget': map_widgets.GoogleMapsAddressWidget(attrs={'data-map-type': 'roadmap'})},
+    }
+    list_display = ('address', 'geolocation')
+
 
 @admin.register(Miasto)
 class MiastoAdmin(admin.ModelAdmin):

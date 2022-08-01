@@ -12,6 +12,7 @@
          <h3 style="text-align: center; color: #4a3079; font-size:18px">
              <i class="fa-solid fa-bus-simple" style="color: #4a3079"></i>
           SZCZECINEK <br> <span style="font-size: 16px"> odjazdy w kierunku {{kierunek|upper}} </span>
+             <div id="txt"></div>
         </h3>
   </div>
 
@@ -21,7 +22,7 @@
          {% for key, value_r in rozklad_tam.items %}
 
 
-            <table style="box-shadow: 10px 10px 10px #888888; padding-right: 5px;">
+            <table style="margin-left: auto; margin-right: auto; box-shadow: 10px 10px 10px #888888; padding-right: 5px;">
                 <caption>
                  {{ key|upper }} - rozklad jazdy ważny od {{ value_r.od }}
                 </caption>
@@ -86,7 +87,7 @@
                      background-color: #4a3079;">
                             S - kursuje w sobotę
 
-                        <div id="txt" style="float: right;"></div>
+
                     </th>
                 </tr>
 

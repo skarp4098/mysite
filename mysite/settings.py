@@ -23,11 +23,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 with open(os.path.join(BASE_DIR, 'secret_key.txt')) as f:
     SECRET_KEY = f.read().strip()
 
+
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 #DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '172.105.70.133', '172.104.230.69', '192.168.88.25']
+ADMINS = (
+     ('Sylwester Karpiński', 's-karp@wp.pl'),
+)
+
+ALLOWED_HOSTS = ['127.0.0.1', '172.105.70.133', '172.104.230.69', '192.168.88.0/26']
 
 
 # Application definition
@@ -136,3 +142,6 @@ CACHES = {
         'LOCATION': '/var/tmp/django_cache',
     }
 }
+
+with open(os.path.join(BASE_DIR, 'maps_key.txt')) as f:
+    GOOGLE_MAPS_API_KEY = f.read().strip()

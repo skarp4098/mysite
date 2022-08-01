@@ -4,43 +4,44 @@
     {{ page_title }} "MONiKA"
 {% endblock title %}
 
-{% block content %}
-<div class="grid-container-one_col">
 
-    <div class="item1"> </div>
+
+{% block content %}
+
+<div class="grid-container-one_col">
 
  <div class="item2">
 
      <div class="row">
-         <div class="column" style="background-color:white;">
-           <p style="text-align: right; font-size: 20px; background-color: white; padding: 40px;
-            border-right: 15px solid #4a3079">
+         <div class="column" >
+           <p style="text-align: right; font-size: 18px; background-color: white; padding: 30px;
+            border-right: 10px solid #4a3079; border-bottom: 2px solid #4a3079">
                <i class="fa-solid fa-van-shuttle" style="color: #4a3079;"> &nbsp;
-                   <a style="color: #4a3079; font-weight: bold;" href="/jazda/szczecinek">Szczecinek</a>
+                   <a style="color: #4a3079; font-weight: bold;" href="{% url 'jazda:szczecinek' %}">Szczecinek</a>
 
                </i>
 
            </p>
 
-            <p style="text-align: right; font-size: 20px; background-color:white; padding: 40px;
-                border-right: 15px solid #4a3079">
+            <p style="text-align: right; font-size: 18px; background-color:white; padding: 30px;
+                border-right: 10px solid #4a3079; border-bottom: 2px solid #4a3079">
                 <i class="fa-solid fa-van-shuttle" style="color: #4a3079;">&nbsp;
-                  <a style="color: #4a3079; font-weight: bold;" href="/jazda/czarne">Czarne</a>
+                  <a style="color: #4a3079; font-weight: bold;" href="{% url 'jazda:czarne' %}">Czarne</a>
                 </i>
 
             </p>
 
-            <p style="text-align: right; font-size: 20px; background-color:white; padding: 40px;
-                border-right: 15px solid #026b4e">
+            <p style="text-align: right; font-size: 18px; background-color:white; padding: 30px;
+                border-right: 10px solid #026b4e; border-bottom: 2px solid #026b4e">
                 <i class="fa-solid fa-van-shuttle" style="color: #026b4e;">&nbsp;
-                    <a style="color: #026b4e; font-weight: bold;" href="/jazda/soboty">Sobota</a>
+                    <a style="color: #026b4e; font-weight: bold;" href="{% url 'jazda:soboty' %}">Sobota</a>
                 </i>
             </p>
 
-            <p style="text-align: right; font-size: 20px; background-color:white; padding: 40px;
-               border-right: 15px solid #026b4e">
+            <p style="text-align: right; font-size: 18px; background-color:white; padding: 30px;
+               border-right: 10px solid #026b4e; border-bottom: 2px solid #026b4e">
                 <i class="fa-solid fa-van-shuttle" style="color: #026b4e;">&nbsp;
-                    <a style="color: #026b4e; font-weight: bold;" href="/jazda/przystanki">Przystanki</a>
+                    <a style="color: #026b4e; font-weight: bold;" href="{% url 'jazda:przystanki' %}">Przystanki</a>
                 </i>
             </p>
          </div>

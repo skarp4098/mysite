@@ -22,4 +22,4 @@ def downloadfile(request, filename=''):
         # return the response value
         return response
     else:
-        return render(request, 'jazda/.html')
+        return render(request, 'jazda/index.html')

@@ -16,3 +16,4 @@ from .ulgi import *
 from .oferta import *
 from .bilety import *
 from .galeria import *
+from .downloadfile import *

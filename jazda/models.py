@@ -2,9 +2,22 @@ import datetime
 import time
 
 from django.db import models
+from django_google_maps import fields as map_fields
+
 # from django.conf import  settings
 
 # Create your models here.
+
+class Lokalizacja(models.Model):
+    address = map_fields.AddressField('Adres', max_length=200)
+    geolocation = map_fields.GeoLocationField('Namiary', max_length=100)
+
+    def __str__(self):
+        return f'{self.address}'
+
+    class Meta:
+        verbose_name_plural = 'lokalizacje'
+
 
 class Miasto(models.Model):
     nazwa = models.CharField('Nazwa miasta', max_length=50)

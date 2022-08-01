@@ -4,72 +4,75 @@
     {{ page_title }} Sobota
 {% endblock title %}
 
+
+
+
 {% block content %}
 <div class="grid-container-one_col">
 
     <div class="item1">
         <h3 style="text-align: center; padding: 10px; box-shadow: 0px 8px 8px #888888;
-            color: white; font-size:20px; background-color: #4a3079">
+            color: white; font-size:16px; background-color: #4a3079">
             <i class="fa-solid fa-van-shuttle fa-xg" style="color: white;"></i> &nbsp;
-             Sobotni rozklad jazdy BT "MONiKA"
+             Sobotni rozklad jazdy
          </h3>
     </div>
 
     <div class="item2">
 
-       <div class="row">
-          <div class="column">
-              <h3 style="text-align: center; color: #4a3079;">{{ kierunek_tam }}</h3>
-             {% for key, value_r in rozklad_sobota.items %}
+         <div class="row">
+               <div class="column">
+                      <h3 style="text-align: center; color: #4a3079;">{{ kierunek_tam }}</h3>
+                 {% for key, value_r in rozklad_sobota.items %}
 
-            <table style="margin-left: auto; margin-right: auto; box-shadow: 8px 8px 8px #888888">
-                <caption>
-                   {#  {{ key|upper }} - rozklad jazdy ważny od {{ value_r.od }}  #}
-                </caption>
-                <tr>
-                    <th rowspan="{{ value_r.liczba_przyst|add:2 }}" width="25px" style="background-color:#4a3079;
-                     font-size: 14px;">
-                        <p>p<br>r<br>z<br>y<br>s<br>t<br>a<br>n<br>k<br>i</p>
-                    </th>
-                     <th colspan="2">godziny</th>
-                    {% for od_do in value_r.etykiety_godzin %}   <th align="center">{{ od_do }}</th>  {% endfor %}
-                </tr>
-              {% for key, value in value_r.przystanek.items %}
-                <tr>
-                            {{ value.przystanek }}
-                    <td>
-                       <a href="{% url 'jazda:przystanek' value.id 0  %}"> {{ key|upper }}</a>
-                       <br>
-                       {{ value.opis }}
-                    </td>
-                    {% if forloop.first %}
-                    <th rowspan="{{ value_r.liczba_przyst }}" width="30px"> <p>m<br>i<br>n<br>u<br>t<br>y</p> </th>
-                    {% endif %}
-                    {% for item_g in value.godzina.items %}
-                             <td style="text-align: center">
-                                     {% for value in item_g %}
-                                         {% if value.sobota|length_is:"2" %}
-                                                {% for item in value.sobota %}
-                                                    {{ item }}
+                    <table style="margin-left: auto; margin-right: auto; box-shadow: 8px 8px 8px #888888">
+                        <caption>
+                           {#  {{ key|upper }} - rozklad jazdy ważny od {{ value_r.od }}  #}
+                        </caption>
+                        <tr>
+                            <th rowspan="{{ value_r.liczba_przyst|add:2 }}" width="25px" style="background-color:#4a3079;
+                             font-size: 14px;">
+                                <p>p<br>r<br>z<br>y<br>s<br>t<br>a<br>n<br>k<br>i</p>
+                            </th>
+                             <th colspan="2">godziny</th>
+                            {% for od_do in value_r.etykiety_godzin %}   <th align="center">{{ od_do }}</th>  {% endfor %}
+                        </tr>
+                        {% for key, value in value_r.przystanek.items %}
+                        <tr>
+                                    {{ value.przystanek }}
+                            <td>
+                               <a href="{% url 'jazda:przystanek' value.id 0  %}"> {{ key|upper }}</a>
+                               <br>
+                               {{ value.opis }}
+                            </td>
+                            {% if forloop.first %}
+                            <th rowspan="{{ value_r.liczba_przyst }}" width="30px"> <p>m<br>i<br>n<br>u<br>t<br>y</p> </th>
+                            {% endif %}
+                            {% for item_g in value.godzina.items %}
+                                     <td style="text-align: center">
+                                             {% for value in item_g %}
+                                                 {% if value.sobota|length_is:"2" %}
+                                                        {% for item in value.sobota %}
+                                                            {{ item }}
 
-                                                {% endfor %}
-                                         {% else %}
-                                            {{ value.sobota }}
-                                         {% endif %}
+                                                        {% endfor %}
+                                                 {% else %}
+                                                    {{ value.sobota }}
+                                                 {% endif %}
 
-                                     {% endfor %}
-                             </td>
-                    {% endfor %}
-                </tr>
-              {% endfor%}
-                 <tr>
-                    <th colspan="{{ value_r.etykiety_godzin|length|add:2 }}" style="background-color: #4a3079">
-                    </th>
-                </tr>
+                                             {% endfor %}
+                                     </td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor%}
+                         <tr>
+                            <th colspan="{{ value_r.etykiety_godzin|length|add:2 }}" style="background-color: #4a3079">
+                            </th>
+                        </tr>
 
-            </table>
-         {% endfor%}
-          </div>
+                    </table>
+                {% endfor%}
+               </div>
 
      <div class="column">
         <h3 style="text-align: center; color: #4a3079;">{{ kierunek_powrot }}</h3>
@@ -136,6 +139,7 @@
     <div class="item4">
 
     </div>
+
 </div>
 
 {% endblock content %}
