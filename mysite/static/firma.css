@@ -674,7 +674,7 @@ img {
 }
 
 .tooltip .tooltiptext {
-  visibility: visibility;
+  visibility: hidden;
   width: 80px;
   background-color:#4a3079;
   color: #fff;
