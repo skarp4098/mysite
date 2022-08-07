@@ -1,17 +1,20 @@
 import mimetypes
 import os
+from pathlib import Path
 from django.http.response import HttpResponse
 from django.shortcuts import render
 
 
 def downloadfile(request, filename=''):
+    #BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
     if filename != '':
         BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
         # define file path
-        filepath = BASE_DIR + '/mysite/static' + filename
+        filepath = BASE_DIR + '/files/' + str(filename)
         # open the file for reading content
-        path = open(filepath, 'rb')
+        path = open(str(filepath), 'rb')
         # set the mime type
         mime_type, _ = mimetypes.guess_type(filepath)
         # set the return value of the HttpResponse
@@ -22,4 +25,7 @@ def downloadfile(request, filename=''):
         # return the response value
         return response
     else:
-        return render(request, 'jazda/index.html')
+        return render(request, 'jazda/index2.html', {
+
+           'sciezka': filename
+        })

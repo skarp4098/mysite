@@ -7,16 +7,36 @@
 {% block content %}
 
 
+
 <div class="grid-container-one_col">
 
     <div class="item1">
         <h3 style="text-align: center; color: #4a3079; font-size:18px">
             <i class="fa-solid fa-bus-simple" style="color: #4a3079"></i>
              {{ miasto|upper }} <br>
+            <div class="tooltip">
+                <span class="tooltiptext">Mapa</span>
+                <a id="myBtn2" style="cursor: pointer;">
+
+                    <i class="fa-solid fa-thumbtack" style="color: #026b4e"></i>
+
+                </a>
+            </div>
+            <div id="myModal" class="modal">
+
+                <div id="map" class="modal-content">
+                    <span class="close">&times;</span>
+
+                </div>
+
+            </div>
+
              <span style="font-size: 16px">
                 {{ spot|upper }} wszystkie odjazdy z przystanku &nbsp;  / &nbsp; kierunek: {{ kierunek|upper }}
              </span>
-            <div id="txt"></div>
+            <div id="txt">
+                <span style="color: white">space</span>
+            </div>
         </h3>
     </div>
 
@@ -108,6 +128,45 @@
 
     </div>
 </div>
+
+
+<script>
+var map;
+
+      var latv = {{ dlugosc|escapejs|safe }};
+      var lngv = {{ szerokosc|escapejs|safe }};
+
+      function initMap() {
+        const uluru = {lat: latv, lng: lngv};
+
+        const map = new google.maps.Map(document.getElementById('map'), {
+          center: uluru,
+          zoom: 16
+        });
+
+        // marker
+        const marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+          icon:"https://img.icons8.com/nolan/2x/marker.png"
+        });
+
+        // infowindow
+        const detailWindow = new google.maps.InfoWindow({
+            content: '<h4 style="text-align: center">BT MoNiKa <br> {{spot|escapejs|safe}}</h4>'
+        });
+
+        marker.addListener("mouseover", () => {
+            detailWindow.open(map, marker);
+        })
+
+      }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAo5ASSKe8Ojgrnd4PDRj33mc2wdaFTMp8&callback=initMap"
+       defer>
+    </script>
+
+
 
 {% endblock content %}
 

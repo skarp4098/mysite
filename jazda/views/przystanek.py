@@ -77,6 +77,8 @@ def przystanek_info(przyst_id, odjazdy):
             'id': item.id,
             'opis': item.opis,
             'opis2': item.opis_drugi,
+            'dlugosc': item.dlugosc,
+            'szerokosc': item.szerokosc,
             # dodaje slownik z godzinami odjazdów
             'godzina': odjazdy
         }
@@ -187,6 +189,7 @@ def przystanek(request, value_id, powrot=0): # value_id to przystanek_id
     if value_id == 1:
         kierunek = ' Szczecinek >> Gwda >> Czarne'
     spot = get_object_or_404(Przystanek, id=value_id)
+
    # ulica = False bylo if ulica na stronie
     zjazd = True
     if powrot == 0:
@@ -205,6 +208,8 @@ def przystanek(request, value_id, powrot=0): # value_id to przystanek_id
 
     return render(request, 'jazda/przystanek.html', {
                                                      'spot': spot,
+                                                     'dlugosc': spot.dlugosc,
+                                                     'szerokosc': spot.szerokosc,
                                                      'etykieta_th': etykieta_th.lower(),
                                                      'zjazd': zjazd,
                                                      'kierunek': kierunek,

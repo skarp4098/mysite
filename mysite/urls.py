@@ -15,17 +15,44 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-#from django.contrib.auth import views as auth_views
+from django.contrib.auth import views as auth_views
+from django.conf import settings
+from django.contrib.staticfiles import views
+from django.urls import re_path
 from . import contact
 
+admin.site.site_header = "Administracja rozkładem jazdy BT 'Monika' "
+admin.site.index_title = "Rozkład jazdy - baza rzeczywista !"
+
+
 urlpatterns = [
-    path('', include('jazda.urls')),
-    path('jazda/', include('jazda.urls')),
-   # path('myclub/', include('myclub.urls')),
-   # path('polls/', include('polls.urls')),
+    # path('jazda/', include('jazda.urls')),
     path('admin/', admin.site.urls),
-   # path('contact/', contact.contact, name='contact'),
-
-
+    path(
+        'admin/password_reset/',
+        auth_views.PasswordResetView.as_view(),
+        name='admin_password_reset',
+    ),
+    path(
+        'admin/password_reset/done/',
+        auth_views.PasswordResetDoneView.as_view(),
+        name='password_reset_done',
+    ),
+    path(
+        'reset/<uidb64>/<token>/',
+        auth_views.PasswordResetConfirmView.as_view(),
+        name='password_reset_confirm',
+    ),
+    path(
+        'reset/done/',
+        auth_views.PasswordResetCompleteView.as_view(),
+        name='password_reset_complete',
+    ),
+    path('', include('jazda.urls', namespace='jazda')),
 
 ]
+
+if settings.DEBUG:
+    urlpatterns += [
+        re_path(r'^static/(?P<path>.*)$', views.serve),
+    ]

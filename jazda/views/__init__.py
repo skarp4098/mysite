@@ -16,4 +16,6 @@ from .ulgi import *
 from .oferta import *
 from .bilety import *
 from .galeria import *
+from .pliki import *
 from .downloadfile import *
+from .simplemap import *

@@ -1,8 +1,7 @@
 {% extends 'pattern2.html' %}
-{% load static %}
 
 {% block title %}
-    {{ page_title }} Download
+    {{ page_title }} Pliki
 {% endblock title %}
 
 {% block content %}
@@ -13,12 +12,12 @@
     </div>
 
     <div class="item2">
-        <h3>Download File using Django</h3>
-        <a href="{% url '/downloadfile' filename='Formularz.pdf' %}">Download PDF</a>
+        <h3>Download File using Django na stronie</h3>
+        <a href="{% url 'jazda:downloadfile' filename='Formularz.pdf' %}">Download PDF</a>
     </div>
 
     <div class="item4">
-
+     <p style="text-align: center">stopka</p>
     </div>
 </div>
 

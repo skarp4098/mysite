@@ -1,4 +1,5 @@
 {% extends 'pattern2.html' %}
+{% load static %}
 
 {% block title %}
     {{ page_title }} Oferta
@@ -7,48 +8,76 @@
 {% block content %}
 <div class="grid-container-one_col">
 
-    <div class="item1">
 
-    </div>
 
-    <div class="item2">
+<div class="item2">
 
      <div id="London" class="tabcontent">
-        <h1>Przewóz osób</h1>
+       <div class="row">
+          <div class="column">
+            <h1>Przewóz osób</h1>
+              <i class="fa-solid fa-van-shuttle fa-xl" style="color: white;"></i>
 
-        <h3>
-            Zajmujemy się turystyką krajową i regionalnym przewozem osób. Jesteśmy przygotowani aby skutecznie realizować czynności związane z przewozem osób.
-                 Z przyjemnością zajmniemy się przewozem Państwa klientów, pracowników, partnerów biznesowych, przyjaciół, rodziny.
-                 Współpracujemy z wszelkiego rodzaju klientami:
-        </h3>
+            <h3 style="text-align: left;">
+                Zajmujemy się turystyką krajową i regionalnym przewozem osób. Jesteśmy przygotowani aby skutecznie realizować czynności związane z przewozem osób.
+                     Z przyjemnością zajmniemy się przewozem Państwa klientów, pracowników, partnerów biznesowych, przyjaciół, rodziny.
+                     Współpracujemy z wszelkiego rodzaju klientami:
+            </h3>
 
-     <ul>
-        <li> firmami zainteresowanymi przewozem swoich pracowników </li>
-        <li> przedszkolami i placówkami szkolnymi </li>
-        <li> urzędami administracji publicznej</li>
-        <li> biurami turystycznymi </li>
-        <li> parafiami kościelnymi </li>
-        <li> osobami prywatnymi  </li>
-     </ul>
-        <h3 style="color: white">tel. 605 551 105</h3>
-        <h2>Zapraszamy</h2>
+
+            <ul style="list-style-type:square; line-height:180%; text-align: left;">
+                <li> firmami zainteresowanymi przewozem swoich pracowników </li>
+                <li> przedszkolami i placówkami szkolnymi </li>
+                <li> urzędami administracji publicznej</li>
+                <li> biurami turystycznymi </li>
+                <li> parafiami kościelnymi </li>
+                <li> osobami prywatnymi  </li>
+            </ul>
+          </div>
+            <div class="column">
+               <div class="card">
+
+                        <img src="{% static 'img_avatar2.png' %}" alt="Avatar" style="width:100%;">
+                    <div class="avatar">
+
+                        <h4>Alina</h4>
+                      <h4>tel. 605 551 105</h4>
+                    </div>
+               </div>
+
+           </div>
+       </div>
 
      </div>
 
      <div id="Paris" class="tabcontent">
-        <h1>Prawo jazdy</h1>
-         <h3>Kurs prawa jazdy</h3>
-        <p>
-            Zainteresowanym proponujemy kurs na prawo jazdy kat. "B"
-        </p>
+        <div class="row">
+          <div class="column">
+            <h1>Prawo jazdy</h1>
+             <i class="fa-solid fa-car-side fa-xl" style="color: white"></i>
+             <h3>Kurs prawa jazdy</h3>
+            <p>
+                Zainteresowanym proponujemy kurs na prawo jazdy kat. "B"
+            </p>
 
-        <p>
-           Szkoła Nauki Jazdy "MONIKA" <br />
-               Arkadiusz Częszak<br />
-        </p>
-            <h3 style="color: white">tel. 601 239 880</h3>
-            <h2>Zapraszamy</h2>
+            <p>
+               Szkoła Nauki Jazdy "MONIKA"
+                <br/>
+                Arkadiusz Częszak<br />
+            </p>
 
+
+            </div>
+            <div class="column">
+            <div class="card">
+                <img src="{% static 'img_avatar.png' %}" alt="Avatar" style="width:100%;">
+              <div class="avatar">
+                <h4><b>Arek</b></h4>
+                <h4 style="color: white">tel. 601 239 880</h4>
+              </div>
+            </div>
+            </div>
+        </div>
      </div>
 
     <button class="tablink" onclick="openCity('London', this, 'orange')" id="defaultOpen">Przewóz osób</button>
@@ -56,9 +85,6 @@
 
     </div>
 
-    <div class="item4">
-
-    </div>
 
 
 </div>

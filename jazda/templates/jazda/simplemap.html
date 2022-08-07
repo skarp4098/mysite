@@ -1,0 +1,70 @@
+{% load static %}
+
+<html lang="pl-PL">
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Google Maps</h3>
+
+    {{ dlugosc }} <br>  {{ szerokosc }} <br>
+    {% autoescape on %}
+      {{ google_api_key }}
+    {% endautoescape %}
+
+    <div id="map"></div>
+      <script>
+      var map;
+      var google_api_key = "{{google_api_key|safe}}";
+      var latv = {{ dlugosc|escapejs|safe }};
+      var lngv = {{ szerokosc|escapejs|safe }};
+
+      function initMap() {
+        const uluru = {lat: latv, lng: lngv};
+
+        const map = new google.maps.Map(document.getElementById('map'), {
+          center: uluru,
+          zoom: 18,
+        });
+
+        // marker
+        const marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+          icon:"https://img.icons8.com/nolan/2x/marker.png"
+        });
+
+        // infowindow
+        const detailWindow = new google.maps.InfoWindow({
+            content: '<h3 style="text-align: center">BT "MONiKA" <br> przystanek Kościuszki II przy szpitalu</h3>'
+        });
+
+        marker.addListener("mouseover", () => {
+            detailWindow.open(map, marker);
+        })
+
+      }
+      </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAo5ASSKe8Ojgrnd4PDRj33mc2wdaFTMp8&callback=initMap"
+       defer>
+    </script>
+
+  </body>
+</html>
+

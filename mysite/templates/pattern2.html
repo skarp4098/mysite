@@ -26,9 +26,9 @@
    <div class="header_main">
 
         <h2 style="color: white; ">
-            <a href="{% url 'jazda:index' %}" style="color: white;">Biuro Turystyczne "MONiKA"</a>
+            <a href="{% url 'jazda:index' %}" style="color: white; margin-right: 5px;">Biuro Turystyczne "MONiKA"</a>
             <i class="fa-solid fa-bus-simple fa-lg" style="color: white"></i>
-            <span style="font-family: Bilbo; text-shadow: 2px 2px 4px white; margin-left: 3px; ">jeździmy dla WAS od 1991 roku</span>
+            <span style="font-family: Bilbo; text-shadow: 2px 2px 4px white; margin-left: 8px; ">jeździmy dla WAS od 1991 roku</span>
         </h2>
 
    </div>
@@ -58,30 +58,15 @@
        </div>
 
       <a href="{% url 'jazda:czarne' %}">Czarne</a>
-      <a href="{% url 'jazda:soboty' %}">Sobota</a>
-     {# <a href="{% url 'jazda:przyst' %}">przyst</a> #}
+     {# <a href="{% url 'jazda:soboty' %}">Sobota</a> #}
 
-      <div class="dropdown">
-        <button class="dropbtn" onclick="dropFunction3()">Więcej
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div id="myDropdown3" class="dropdown-content">
-           <a href="{% url 'jazda:przystanki' %}">Przystanki</a>
-           <a href="{% url 'jazda:oferta' %}">Oferta</a>
-           <a href="{% url 'jazda:bilety' %}">Bilety miesięczne</a>
-           <a href="{% url 'jazda:ulgi'  %}">Ulgi na przejazdy</a>
-           <a href="{% url 'jazda:galeria'  %}">Galeria</a>
-           {# <a href="#contact">Do pobrania !</a> #}
-        </div>
-       </div>
+
+
       <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-
 
    </div>
 
-
         <div class="column side">
-                <p>Tu coś dam</p>
 
         </div>
 
@@ -90,20 +75,18 @@
              {% block content %}
 
              {% endblock content %}
-
-
-
-
         </div>
+
+
 
         <div class="column side">
 
         </div>
 
 
-        <div class="footer_main" style="border: 10px solid red">
+        <div class="footer">
 
-
+            <div class="row">
                  <div class="column" style="width: 50%;">
                      <a href="{% url 'jazda:index' %}">
                         <img src="{% static 'logoBT.png' %}" alt="autobus" class="responsive"/>
@@ -112,30 +95,110 @@
 
                  <div class="column" style="width: 50%;">
 
-                      <ul class="fa-ul" style="margin: 3em">
-
-                         <li><span class="fa-li"><i class="fa-solid fa-phone fa-lg fa-pull-left"
-                                                    style="color: #026b4e;"></i></span>
-                            <span style="color: #026b4e; font-weight: bold; float: left; font-size: 14px">
+                   <ul class="fa-ul" style="margin: 3em">
+                     <li>
+                         <span class="fa-li">
+                                <i class="fa-solid fa-phone fa-lg fa-pull-left" style="color: #026b4e;"></i>
+                         </span>
+                         <span style="color: #026b4e; font-weight: bold; float: left; font-size: 14px">
                                 605 551 105
-                            </span>
-                         </li>
-                             <br><br>
+                         </span>
+                     </li>
+                        <br><br>
+                     <li>
+                         <span class="fa-li">
+                                <i class="fa-solid fa-location-dot fa-lg fa-pull-left" style="color: #026b4e;"></i>
+                         </span>
+                         <span style="color: #026b4e; font-weight: bold; float: left; font-size: 14px">
+                               78-400 SZCZECINEK SKOTNIKI 18
+                         </span>
+                     </li>
+                   </ul>
 
-                           <li><span class="fa-li"><i class="fa-solid fa-location-dot fa-lg fa-pull-left"
-                                                      style="color: #026b4e;"></i></span>
-                            <span style="color: #026b4e; font-weight: bold; float: left; font-size: 14px">
-                                78-400 SZCZECINEK SKOTNIKI 18
-                            </span>
+                 </div>
+            </div>
+            <div class="row" style="background-color: #4a3079; padding: 18px;">
 
-                           </li>
-                      </ul>
+
+
+                <div class="columnindex">
+
+                   <div class="row" style="border-left: 1px solid white;">
+                   <p style="float: left;">
+                       <a href="{% url 'jazda:przystanki'  %}" style="color: white; margin-left: 8px;">Przystanki</a>
+                   </p>
+                   </div>
+
+                    <div class="row" style="border-left: 1px solid white;">
+                   <p style="float: left;">
+                       <a href="{% url 'jazda:soboty'  %}" style="color: white; margin-left: 8px;">Sobota</a>
+                   </p>
+                   </div>
+
+                </div>
+
+                <div class="columnindex">
+
+                    <div class="row" style="border-left: 1px solid white;">
+                        <p style="float: left;">
+                            <a href="{% url 'jazda:ulgi'  %}" style="color: white; margin-left: 8px;">Ulgi na przejazdy</a>
+                        </p>
+                    </div>
+
+                    <div class="row"  style="border-left: 1px solid white;">
+                        <p style="float: left;">
+                          <a href="{% url 'jazda:bilety'  %}" style="color: white; margin-left: 8px;">Bilety miesieczne</a>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="columnindex">
+                   <div class="row"  style="border-left: 1px solid white;">
+                        <p style="float: left;">
+                            <a href="{% url 'jazda:galeria'  %}" style="color: white; margin-left: 8px;">Nasze autobusy</a>
+                        </p>
+                   </div>
+                   <div class="row"  style="border-left: 1px solid white;">
+                        <p style="float: left;">
+                            <a href="{% url 'jazda:oferta'  %}" style="color: white; margin-left: 8px;">Oferta</a>
+                        </p>
+                   </div>
+                </div>
+
+                <div class="columnindex">
+
+                 <div class="row"  style="color: white; border-left: 1px solid white;">
+                   <p style="float: left;  margin-left: 8px;">Dokumenty do pobrania:</p>
+                    <br><br>
+                   <p style="margin-left: 20px;">
+                     <i class="fa-solid fa-file-pdf fa-lg fa-pull-left"></i>
+                        <a href="{% url 'jazda:downloadfile' filename='Formularz.pdf' %}"
+                           style="float: left; color: white;">
+                           Formularz eKarty
+                        </a>
+                   </p>
+                   <br>
+                   <p style="margin-left: 20px; color: white;">
+                       <i class="fa-solid fa-file-pdf fa-lg fa-pull-left"></i>
+                         <a href="{% url 'jazda:downloadfile' filename='RegulaminKarty.pdf' %}"
+                           style="float: left;padding-bottom: 15px; color: white;">
+                           Regulamin korzystania z eKarty
+                         </a>
+                   </p>
+                  </div>
+                </div>
+
+                <div class="columnindex">
+
+                        <img src="{% static 'plansza.jpg' %}" alt="pfr" class="responsive"  style="float: left;"/>
+
                  </div>
 
-
-
-
-            <p> <span>strona w budowie ver. 2907</span></p>
+            </div>
+            <div class="row" style="background-color: #026b4e; color: white; padding: 30px; font-size: 14px;">
+              <p>strona w budowie wer. 0.9</p>
+            </div>
 
         </div>
 
@@ -336,6 +399,35 @@ function drawHand(ctx, pos, length, width) {
 }
 
 </script>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn2");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
 </body>
 
 </html>

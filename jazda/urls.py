@@ -1,4 +1,4 @@
-from django.urls import  path
+from django.urls import path
 from . import views
 
 app_name = 'jazda'
@@ -19,6 +19,9 @@ urlpatterns = [
     path('oferta/', views.oferta, name='oferta'),
     path('bilety/', views.bilety, name='bilety'),
     path('galeria/', views.galeria, name='galeria'),
+    path('pliki/', views.pliki, name='pliki'),
+    path('downloadfile/<str:filename>', views.downloadfile, name='downloadfile'),
+    path('simplemap/', views.simplemap, name='simplemap'),
 
     # dla parametru string
     # path('<str:desire>', views.drive-challenge, name='drive-challenge'),

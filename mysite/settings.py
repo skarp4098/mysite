@@ -131,6 +131,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 STATICFILES_DIRS = [BASE_DIR / "mysite/static"]
 
+#STATICFILES_DIRS = [
+#    BASE_DIR / "static",
+#    '/var/www/mysite/static/',
+#]
+
+# HTTPS settings
+#SESSION_COOKIE_SECURE = True
+#CSRF_COOKIE_SECURE = True
+#SECURE_SSL_REDIRECT = True
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
