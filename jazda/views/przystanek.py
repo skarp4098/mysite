@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404
 from jazda.models import Przystanek, Godzina, Rozklad, Miasto
 from jazda.views.rozklady import etykiety_godzin_th  #  , przystanek_odjazdy
 from django.shortcuts import render
+from django.conf import settings
 from calendar import HTMLCalendar
 from datetime import date
 
@@ -210,6 +211,7 @@ def przystanek(request, value_id, powrot=0): # value_id to przystanek_id
                                                      'spot': spot,
                                                      'dlugosc': spot.dlugosc,
                                                      'szerokosc': spot.szerokosc,
+                                                     'key': settings.GOOGLE_MAPS_API_KEY,
                                                      'etykieta_th': etykieta_th.lower(),
                                                      'zjazd': zjazd,
                                                      'kierunek': kierunek,

@@ -26,8 +26,8 @@ with open(os.path.join(BASE_DIR, 'secret_key.txt')) as f:
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-#DEBUG = False
+#DEBUG = True
+DEBUG = False
 
 ADMINS = (
      ('Sylwester Karpiński', 's-karp@wp.pl'),
@@ -137,8 +137,8 @@ STATICFILES_DIRS = [BASE_DIR / "mysite/static"]
 #]
 
 # HTTPS settings
-#SESSION_COOKIE_SECURE = True
-#CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 #SECURE_SSL_REDIRECT = True
 
 # Default primary key field type
