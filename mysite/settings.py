@@ -33,7 +33,7 @@ ADMINS = (
      ('Sylwester Karpiński', 's-karp@wp.pl'),
 )
 
-ALLOWED_HOSTS = ['127.0.0.1', '172.105.70.133', '172.104.230.69', '192.168.88.0/26']
+ALLOWED_HOSTS = ['127.0.0.1', '172.105.70.133', '172.104.230.69', '192.168.88.0/26', 'btmonika.pl']
 
 
 # Application definition
@@ -139,7 +139,12 @@ STATICFILES_DIRS = [BASE_DIR / "mysite/static"]
 # HTTPS settings
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
-#SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = True
+
+# HSTS settings
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

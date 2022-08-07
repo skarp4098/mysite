@@ -1,0 +1,143 @@
+@charset "utf-8";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+/* Style the header */
+.header {
+  grid-area: header;
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: left;
+  font-size: 35px;
+  text-shadow: 2px 2px 4px #000000;
+  color: white;
+}
+
+/* The grid container */
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'left middle middle middle middle right'
+    'footer footer footer footer footer footer';
+  /* grid-column-gap: 10px; - if you want gap between the columns */
+}
+
+.left,
+.middle,
+.right {
+  padding: 0px ;
+  /* height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Style the left column */
+.left {
+  grid-area: left;
+
+}
+
+/* Style the middle column */
+.middle {
+  grid-area: middle;
+
+}
+
+/* Style the right column */
+.right {
+  grid-area: right;
+}
+
+/* Style the footer */
+.footer {
+  grid-area: footer;
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .grid-container  {
+    grid-template-areas:
+      'top top top top'
+    'col1 col1 col2 col2'
+    'footer footer footer footer';
+    }
+  }
+
+.item1 { grid-area: top; height: 50px;}
+.item2 { grid-area: col1; }
+.item3 { grid-area: col2; }
+.item4 { grid-area: footer; height: 50px; }
+
+.grid-container-przystanki {
+  display: grid;
+  grid-template-areas:
+    'top top top top'
+    'col1 col1 col2 col2'
+    'footer footer footer footer';
+  column-gap: 1px;
+  row-gap: 1px;
+  background-color: #026b4e;
+  padding: 1px;
+}
+
+.grid-container-przystanki > div {
+  background-color: #fff;
+  text-align: left;
+  padding: 5px 0;
+  font-size: 15px;
+  border: 1px #026b4e;
+}
+
+
+table, td, th {
+  border: 1px #ddd;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+
+}
+
+th, td {
+  padding: 15px;
+}
+tr:hover {background-color: coral;}
+
+ul {
+  /* border-left: 1px solid #4a3079; */
+  background-color: #fff;
+  list-style-type: none;
+  padding: 10px 0px;
+}
+
+ul li a{
+  padding: 10px 10px;
+  text-decoration: none;
+  color: #026b4e;
+
+
+}
+
+ul li:last-child {
+     border-bottom: none
+}
+
+a.lista:link {color:#026b4e;}
+
+a.lista:hover {
+    color:#fff;
+    text-decoration:none;
+    background:#4a3079;
+ }
+
+
