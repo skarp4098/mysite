@@ -34,41 +34,40 @@ def make_url(przyst_id, przystanki):
     else:
         return url
 
-def przyst(miasto_id=0):
+def przyst(miasto_id=0, id_r=0):
     slownik_przystankow = {}
     przystanki = Przystanek.objects.filter(miasto_id=miasto_id).order_by('nazwa')
-    godziny = Godzina.objects.filter()
-    for item_p in przystanki:
-        etykieta = item_p.nazwa + ', ' + item_p.opis
-        slownik_przystankow[etykieta] = {
-            #'id_przyst': item_p.id,
-            'url': make_url(item_p.id, przystanki),
+    godziny = Godzina.objects.filter(rozklad_id=id_r, przystanek_id__in=przystanki)
 
-        }
+    for item_p in przystanki:
+        for item_g in godziny:
+            if item_p.id == item_g.przystanek_id:
+                etykieta = item_p.nazwa + ', ' + item_p.opis
+                slownik_przystankow[etykieta] = {
+                'url': make_url(item_p.id, przystanki),
+                }
     return slownik_przystankow
 
 
-def miasto(miasto_id=0):
+def miasto(miasto_id=0, id_r=0):
     slownik_miasto = {}
 
-    if miasto_id == 0:
-        miasta = Miasto.objects.all()
-        for item_m in miasta:
-            slownik_miasto[item_m.nazwa] = {
-                'id_miasta': item_m.id,
-                'przystanki': przystanki(int(item_m.id))
+    # if miasto_id == 0:
+    #     miasta = Miasto.objects.all()
+    #     for item_m in miasta:
+    #         slownik_miasto[item_m.nazwa] = {
+    #             'id_miasta': item_m.id,
+    #             'przystanki': przystanki(int(item_m.id))
+    #
+    #         }
 
-            }
+    miasta = Miasto.objects.filter(id=miasto_id)
+    for item_m in miasta:
+        slownik_miasto[item_m.nazwa] = {
+           'id_miasta': item_m.id,
+           'przystanki': przyst(item_m.id, id_r)
 
-    else:
-        miasta = Miasto.objects.filter(id=miasto_id)
-        for item_m in miasta:
-            slownik_miasto[item_m.nazwa] = {
-                'id_miasta': item_m.id,
-                'przystanki': przyst(item_m.id)
-
-            }
-
+        }
     return slownik_miasto
 
 
@@ -81,7 +80,7 @@ def rozklad(miasto_id=0):
     for item_r in rozklady:
         slownik_rozklad[item_r.nazwa] = {
         'od': str(item_r.od),
-        'miasto': miasto(miasto_id),
+        'miasto': miasto(miasto_id, item_r.id),
 
         }
     return slownik_rozklad

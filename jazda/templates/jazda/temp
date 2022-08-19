@@ -6,9 +6,7 @@ python manage.py check --settings=mysite.settings
 
 <script src="{% static 'app.js' %}"></script>
 
-<script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAo5ASSKe8Ojgrnd4PDRj33mc2wdaFTMp8&callback=initMap">
-  </script>
+
 
 
 <script>
@@ -33,7 +31,7 @@ python manage.py check --settings=mysite.settings
           zoom: 20
         });
       }
-    </script>
+ </script>
 
 
  <div class="dropdown">

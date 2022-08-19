@@ -11,31 +11,40 @@
 <div class="grid-container-one_col">
 
     <div class="item1">
-        <h3 style="text-align: center; color: #4a3079; font-size:18px">
+        <h3 style="text-align: center; color: #4a3079; font-size:16px">
             <i class="fa-solid fa-bus-simple" style="color: #4a3079"></i>
              {{ miasto|upper }} <br>
-            <div class="tooltip">
-                <span class="tooltiptext">Mapa</span>
-                <a id="myBtn2" style="cursor: pointer;">
 
-                    <i class="fa-solid fa-thumbtack" style="color: red"></i>
-
-                </a>
-            </div>
             <div id="myModal" class="modal">
 
                 <div id="map" class="modal-content">
                     <span class="close">&times;</span>
-
                 </div>
 
             </div>
 
-             <span style="font-size: 16px">
-                {{ spot|upper }} wszystkie odjazdy z przystanku &nbsp;  / &nbsp; kierunek: {{ kierunek|upper }}
-             </span>
-            <div id="txt">
-                <span style="color: white">space</span>
+            <div class="row">
+                <div class="column">
+                  <div class="tooltip">
+                    <span class="tooltiptext">Mapa</span>
+                        <a id="myBtn2" style="cursor: pointer;">
+                            <i class="fa-solid fa-thumbtack" style="color: red"></i>
+                        </a>
+                  </div>
+                    <span style="font-size: 14px">
+                        {{ spot|upper }}
+                    </span>
+                </div>
+                     <div class="column">
+                   <span style="font-size: 14px">
+                     kierunek: {{ kierunek|upper }}
+                     <i class="fa-solid fa-flag-checkered"></i>
+                   </span>
+                 </div>
+            </div>
+
+            <div id="txt" style=" font-size: 14px;">
+                <span style="color: white;">space</span>
             </div>
         </h3>
     </div>
@@ -112,7 +121,7 @@
                 </tr>
 
                  <tr>
-                    <th colspan="{{ value_p.etykiety_godzin|length|add:2 }}" style="text-align: left; font-size: 14px;
+                    <th colspan="{{ value_p.etykiety_godzin|length|add:2 }}" style="text-align: left; font-size: 12px;
                      background-color: #4a3079;">
                             S - kursuje w sobotę &nbsp
                       {% if zjazd %} Z - kurs do Skotnik {% endif %}
@@ -148,7 +157,7 @@ var map;
         const marker = new google.maps.Marker({
           position: uluru,
           map: map,
-          icon:"https://img.icons8.com/nolan/2x/marker.png"
+          icon:"https://img.icons8.com/nolan/1x/marker.png"
         });
 
         // infowindow

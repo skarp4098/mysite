@@ -22,7 +22,11 @@
 
          <div class="row">
                <div class="column">
-                      <h3 style="text-align: center; color: #4a3079;">{{ kierunek_tam }}</h3>
+                      <p style="text-align: center; color: #4a3079; font-size: 14px; font-weight: bold;">
+                          <i class="fa-solid fa-van-shuttle fa-xg" style="color: #4a3079;"></i> &nbsp;
+                          {{ kierunek_tam }}
+                        <i class="fa-solid fa-flag-checkered fa-xg"></i>
+                      </p>
                  {% for key, value_r in rozklad_sobota.items %}
 
                     <table style="margin-left: auto; margin-right: auto; box-shadow: 8px 8px 8px #888888">
@@ -75,7 +79,11 @@
                </div>
 
      <div class="column">
-        <h3 style="text-align: center; color: #4a3079;">{{ kierunek_powrot }}</h3>
+        <p style="text-align: center; color: #4a3079; font-size: 14px; font-weight: bold;">
+            <i class="fa-solid fa-van-shuttle fa-xg" style="color: #4a3079;"></i> &nbsp;
+            {{ kierunek_powrot }}
+            <i class="fa-solid fa-flag-checkered fa-xg"></i>
+        </p>
 
         {% for key, value_r in rozklad_sobota_powrot.items %}
 

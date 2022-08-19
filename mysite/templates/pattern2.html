@@ -6,7 +6,7 @@
     <meta name="Keywords" content="biuro turystyczne monika, btmonika, bt monika, szczecinek, monika, autokary,
       wynajem autokarów, turystyka, polska turystyka, prawo jazdy, kurs, nauka jazdy, przewóz osób, przewozy, transport,
       biuro podrozy, wycieczki szkolne, oferty turystyczne, wyjazdy firmowe" />
-	<meta name="description" content= "Wynajem autokarów, organizacja wyjazdów, polska turystyka, wycieczki szkolne, przewóz osób." />
+	<meta name="description" content= "Wynajem autokarów, organizacja wyjazdów, kurs na prawo jazdy kat. B, turystyka krajowa, wycieczki szkolne, przewóz osób." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Sylwester Karpiński">
     <link href='https://fonts.googleapis.com/css?family=Bilbo' rel='stylesheet'>
@@ -42,8 +42,12 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content" id="myDropdown1">
-           <a href="{% url 'jazda:szczecinek' %}">Czarne</a>
-           <a href="{% url 'jazda:skotniki' %}">Skotniki</a>
+           <a href="{% url 'jazda:szczecinek' %}">Czarne
+            <i class="fa-solid fa-flag-checkered"></i>
+           </a>
+           <a href="{% url 'jazda:skotniki' %}">Skotniki
+            <i class="fa-solid fa-flag-checkered"></i>
+           </a>
         </div>
       </div>
 
@@ -52,8 +56,12 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content" id="myDropdown2">
-           <a href="{% url 'jazda:gwda' %}">Czarne</a>
-           <a href="{% url 'jazda:gwdapowrot' %}">Szczecinek</a>
+           <a href="{% url 'jazda:gwda' %}">Czarne
+               <i class="fa-solid fa-flag-checkered"></i>
+           </a>
+           <a href="{% url 'jazda:gwdapowrot' %}">Szczecinek
+               <i class="fa-solid fa-flag-checkered"></i>
+           </a>
         </div>
        </div>
 
@@ -89,7 +97,7 @@
             <div class="row">
                  <div class="column" style="width: 50%;">
                      <a href="{% url 'jazda:index' %}">
-                        <img src="{% static 'logoBT.png' %}" alt="autobus" class="responsive"/>
+                        <img src="{% static 'logoBT.png' %}" alt="btmonika.pl" class="responsive"/>
                      </a>
                  </div>
 
@@ -147,7 +155,7 @@
 
                     <div class="row"  style="border-left: 1px solid white;">
                         <p style="float: left;">
-                          <a href="{% url 'jazda:bilety'  %}" style="color: white; margin-left: 8px;">Bilety miesieczne</a>
+                          <a href="{% url 'jazda:bilety'  %}" style="color: white; margin-left: 8px;">Bilety miesięczne</a>
                         </p>
                     </div>
 
@@ -171,7 +179,7 @@
                  <div class="row"  style="color: white; border-left: 1px solid white;">
                    <p style="float: left;  margin-left: 8px;">Dokumenty do pobrania:</p>
                     <br><br>
-                   <p style="margin-left: 20px;">
+                   <p style="margin-left: 8px;">
                      <i class="fa-solid fa-file-pdf fa-lg fa-pull-left"></i>
                         <a href="{% url 'jazda:downloadfile' filename='Formularz.pdf' %}"
                            style="float: left; color: white;">
@@ -179,7 +187,7 @@
                         </a>
                    </p>
                    <br>
-                   <p style="margin-left: 20px; color: white;">
+                   <p style="margin-left: 8px; color: white;">
                        <i class="fa-solid fa-file-pdf fa-lg fa-pull-left"></i>
                          <a href="{% url 'jazda:downloadfile' filename='RegulaminKarty.pdf' %}"
                            style="float: left;padding-bottom: 15px; color: white;">
