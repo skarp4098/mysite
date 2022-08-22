@@ -16,10 +16,11 @@ body {
 @media screen and (max-width: 600px) {
   .columnindex {
    width: 100%;
+   color: white;
   }
 }
 
-
+ins {color: white;}
 
 /*div.columnindex:hover{
     background-color: #d1d1d1
