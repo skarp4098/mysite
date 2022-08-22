@@ -37,7 +37,8 @@
                 </div>
                      <div class="column">
                    <span style="font-size: 14px">
-                     kierunek: {{ kierunek|upper }}
+                      <i class="fa-solid fa-van-shuttle fa-xg" style="color: #4a3079;"></i>
+                       {{ kierunek|upper }}
                      <i class="fa-solid fa-flag-checkered"></i>
                    </span>
                  </div>
@@ -157,7 +158,7 @@ var map;
         const marker = new google.maps.Marker({
           position: uluru,
           map: map,
-          icon:"https://img.icons8.com/nolan/1x/marker.png"
+          icon:"https://img.icons8.com/nolan/2x/marker.png"
         });
 
         // infowindow

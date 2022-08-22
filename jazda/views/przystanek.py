@@ -195,6 +195,8 @@ def przystanek(request, value_id, powrot=0): # value_id to przystanek_id
     zjazd = True
     if powrot == 0:
         zjazd = False
+    if zjazd == True:
+        kierunek = 'Gwda >> Szczecinek >> Skotniki'
 
     if str(spot).startswith("ul."):
         temp = str(spot).lstrip(", ul.")
