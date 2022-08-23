@@ -27,14 +27,16 @@
 
         <h3 style="color: white; ">
             <a href="{% url 'jazda:index' %}" style="color: white; margin-right: 5px;">Biuro Turystyczne "MONiKA"</a>
-            <i class="fa-solid fa-bus-simple fa-lg" style="color: white"></i>
+            <i class="fa-solid fa-road fa-lg" style="color: white"></i>
             <span style="font-family: Bilbo; text-shadow: 2px 2px 4px white; margin-left: 8px; ">jeździmy dla WAS od 1991 roku</span>
         </h3>
 
    </div>
 
    <div class="topnav" id="myTopnav">
-      <a href="{% url 'jazda:index' %}" class="active">Start</a>
+      <a href="{% url 'jazda:index' %}"class="active" >
+           Start
+      </a>
       <a href="{% url 'jazda:przystanek' 1 0 %}">Skotniki</a>
 
       <div class="dropdown">
@@ -144,56 +146,95 @@
                 <div class="columnindex">
 
                    <div class="row" style="border-left: 1px solid white;">
-                   <p style="float: left;">
+                     <p style="float: left;">
                        <a href="{% url 'jazda:przystanki'  %}" style="color: white; margin-left: 8px;">Przystanki</a>
-                   </p>
+                     </p>
                    </div>
 
-                    <div class="row" style="border-left: 1px solid white;">
-                   <p style="float: left;">
+                  <div class="row" style="border-left: 1px solid white;">
+                    <p style="float: left;">
                        <a href="{% url 'jazda:soboty'  %}" style="color: white; margin-left: 8px;">Sobota</a>
-                   </p>
-                   </div>
+                    </p>
+                  </div>
+
+                  <div class="row" style="border-left: 1px solid white;">
+                     <p style="float: left;">
+                        <a href="{% url 'jazda:ulgi'  %}" style="color: white; margin-left: 8px;">Ulgi na przejazdy</a>
+                     </p>
+                  </div>
 
                 </div>
 
                 <div class="columnindex">
 
                     <div class="row" style="border-left: 1px solid white;">
-                        <p style="float: left;">
-                            <a href="{% url 'jazda:ulgi'  %}" style="color: white; margin-left: 8px;">Ulgi na przejazdy</a>
-                        </p>
-                    </div>
-
-                    <div class="row"  style="border-left: 1px solid white;">
                         <p style="float: left;">
                           <a href="{% url 'jazda:bilety'  %}" style="color: white; margin-left: 8px;">Bilety miesięczne</a>
                         </p>
                     </div>
 
-                </div>
+                    <div class="row"  style="border-left: 1px solid white;">
+                        <p style="float: left;">
+                          <a href="{% url 'jazda:galeria'  %}" style="color: white; margin-left: 8px;">Nasze autobusy</a>
+                        </p>
+                    </div>
 
-                <div class="columnindex">
-                   <div class="row"  style="border-left: 1px solid white;">
-                        <p style="float: left;">
-                            <a href="{% url 'jazda:galeria'  %}" style="color: white; margin-left: 8px;">Nasze autobusy</a>
-                        </p>
-                   </div>
-                   <div class="row"  style="border-left: 1px solid white;">
-                        <p style="float: left;">
-                            <a href="{% url 'jazda:oferta'  %}" style="color: white; margin-left: 8px;">Oferta</a>
-                        </p>
+                    <div class="row"  style="border-left: 1px solid white;">
+                      <p style="float: left;">
+                         <a href="{% url 'jazda:oferta'  %}" style="color: white; margin-left: 8px;">Oferta</a>
+                      </p>
                    </div>
 
                 </div>
 
                 <div class="columnindex">
+                    <div class="row"  style="border-left: 1px solid white;">
+                      <p style="float: left;  margin-left: 8px; color: white">
+                          PKO BP nr konta do wpłat
+                          <button onclick="copyToclip()" style="background-color: #4a3079; border: none;">
+                            <i class="fa-solid fa-copy" style=" color: white; cursor: pointer;"></i>
+                          </button>
+                      </p>
+                      <span>
+                         <a style="float: left;  margin-left: 8px; color: #fff; margin-top: 0px; margin-bottom: 10px;
+                          text-decoration: none";>
+                             02 1020 2791 0000 7902 0012 5831
+                         </a>
+                      </span>
+                      <input type="text" id="myInput" value="02 1020 2791 0000 7902 0012 5831" hidden readonly>
+                   </div>
 
-                 <div class="row"  style="color: white; border-left: 1px solid white;">
+                   <div class="row"  style="border-left: 1px solid white;">
+                      <p style="float: left;">
+                         <a href="https://www.instagram.com/" style="color: white; margin-left: 8px;">
+                            <i class="fa-brands fa-instagram fa-xl"></i>
+                         </a>
+                         <a href="https://www.facebook.com/" style="color: white; margin-left: 15px;">
+                            <i class="fa-brands fa-facebook fa-xl"></i>
+                         </a>
+                         <a href="https://www.youtube.com/" style="color: white; margin-left: 15px;">
+                            <i class="fa-brands fa-youtube fa-xl"></i>
+                         </a>
+                         <a href="https://www.twitter.com/" style="color: white; margin-left: 15px;">
+                            <i class="fa-brands fa-twitter fa-xl"></i>
+                         </a>
+                          <i class="fa-solid fa-arrow-up-right-from-square" style="color: white; margin-left: 15px;"></i>
+
+                      </p>
+                   </div>
+                   <div class="row"  style="border-left: 1px solid white;">
+
+                   </div>
+
+                </div>
+
+              <div class="columnindex">
+
+                <div class="row"  style="color: white; border-left: 1px solid white;">
                    <p style="float: left;  margin-left: 8px;">Dokumenty do pobrania:</p>
                     <br><br>
                    <p style="margin-left: 8px;">
-                     <i class="fa-solid fa-file-pdf fa-lg fa-pull-left"></i>
+                     <i class="fa-solid fa-file-pdf fa-pull-left"></i>
                         <a href="{% url 'jazda:downloadfile' filename='Formularz.pdf' %}"
                            style="float: left; color: white;">
                            Formularz eKarty
@@ -201,32 +242,23 @@
                    </p>
                    <br>
                    <p style="margin-left: 8px; color: white;">
-                       <i class="fa-solid fa-file-pdf fa-lg fa-pull-left"></i>
+                       <i class="fa-solid fa-file-pdf fa-pull-left"></i>
                          <a href="{% url 'jazda:downloadfile' filename='RegulaminKarty.pdf' %}"
                            style="float: left;padding-bottom: 15px; color: white;">
                            Regulamin korzystania z eKarty
                          </a>
                    </p>
-                  </div>
-                  <div class="row"  style="border-left: 1px solid white;">
-                      <p style="float: left;  margin-left: 8px; color: white">
-                          PKO BP nr konta do wpłat
-                          <button onclick="copyToclip()" style="background-color: #4a3079; border: none;">
-                            <i class="fa-solid fa-copy fa-lg" style=" color: white; cursor: pointer;"></i>
-                          </button>
-                      </p>
-                      <span>
-                         <a style="float: left;  margin-left: 8px; color: #fff; margin-top: 0px; text-decoration: none">
-                             02 1020 2791 0000 7902 0012 5831
-                         </a>
-                      </span>
-                      <input type="text" id="myInput" value="02 1020 2791 0000 7902 0012 5831" hidden readonly>
-                   </div>
                 </div>
+                   <div class="row"  style="border-left: 1px solid white;">
+
+
+                   </div>
+              </div>
 
                 <div class="columnindex">
 
-                        <img src="{% static 'plansza.jpg' %}" alt="pfr" class="responsive"  style="float: left;"/>
+                        <img src="{% static 'plansza.jpg' %}" alt="pfr" class="responsive"
+                             style="float: left; margin-top: 5px;"/>
 
                  </div>
 
